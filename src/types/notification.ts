@@ -6,12 +6,8 @@ import {
   SubjectType,
 } from "src/types/notificationContent";
 
-export enum NotificationGroup {
-  CreationInteraction = "CREATION_INTERACTION",
-  CommentToMe = "COMMENT_TO_ME",
-  FriendShare = "FRIEND_SHARE",
-  WebSystem = "WEB_SYSTEM",
-}
+export type NotificationGroup =
+  "CREATION_INTERACTION" | "COMMENT_TO_ME" | "FRIEND_SHARE" | "WEB_SYSTEM";
 
 export interface NotificationSenderInfo {
   approvedContent: string | null;

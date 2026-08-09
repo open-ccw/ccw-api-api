@@ -11,7 +11,7 @@ export type Res = string;
 
 /**
  * 解压缩短链接
- * @param {string} shortUrlCode 短链接码
+ * @param {string} shortUrlCode 短链接
  * @returns {Promise<Res>} 原始URL
  */
 export async function decompressShortUrl(shortUrlCode: string): Promise<Res> {

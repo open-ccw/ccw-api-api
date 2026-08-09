@@ -62,11 +62,18 @@ import { getPersonalCurrencyAccount } from "./currency/account/personal";
 import { getAllEmojis } from "./emoji/all";
 import { getEmojiCategoryList } from "./emoji/category/list";
 import { getEmojiPage } from "./emoji/page";
+import { resolveExternalIp } from "./study-main/external/ip/resolve";
+import { getDistrictList } from "./study-main/districts/list";
+import { getSchoolList } from "./study-main/schools/list";
+import { shareCreation } from "./feed/creation_share";
+import { shareFriendInvite } from "./feed/friend_invite";
 import { sendEvent } from "./event";
 import { getHealthCheck } from "./health/check";
 import { getLeafletsItemList } from "./leaflets/item/list";
 import { getLockedUserDetail } from "./locked_user/detail";
 import { getMutedUserDetail } from "./muted_user/detail";
+import { shareCreationToFriend } from "./notification/creation_share";
+import { recommendUser } from "./notification/user_recommend";
 import { getNotificationPage } from "./notification/page";
 import { getNotificationStats } from "./notification/stats/v2";
 import { getTypicalProjectPage } from "./typical_project/page";
@@ -152,6 +159,8 @@ export const communityWeb = {
   getCreationScreenshotPage,
   getCreationStudentDetail,
   getCreationTags,
+  getDistrictList,
+  getSchoolList,
   getCreatorScore,
   getDonatedRecordRanking,
   getExcellentCreations,
@@ -213,15 +222,20 @@ export const communityWeb = {
   getUserLabelList,
   getUserProductsPage,
   queryMallProducts,
+  recommendUser,
   getCreationsByStudent,
   insertCheckInRecord,
   likeComment,
   produceTeamMemberTicket,
   resetCommentWeight,
+  resolveExternalIp,
   searchCloudAssets,
   searchCreationsByTag,
   sendEvent,
   setUserProductStatus,
+  shareCreation,
+  shareCreationToFriend,
+  shareFriendInvite,
   submitCreation,
   topComment,
   updateCreation,

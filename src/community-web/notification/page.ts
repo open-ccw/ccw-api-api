@@ -20,7 +20,7 @@ export type Res = PagesRes<Notification>;
  * @returns {Promise<Res>} 分页通知数据
  */
 export async function getNotificationPage<T extends string>(
-  notifyGroup: NotificationGroup = NotificationGroup.CommentToMe,
+  notifyGroup: NotificationGroup = "COMMENT_TO_ME",
   pageArgs_: Partial<PageArgs<"createdAt" | T>> = {
     sortField: "createdAt",
   },
