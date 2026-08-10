@@ -1,13 +1,7 @@
 import { CNameOssUrl, MongoDBId, UUID } from "./api";
 
 export type SubjectType =
-  | "POST"
-  | "CREATION"
-  | "EXTENSION"
-  | "PROFILE"
-  | "SOCIETY"
-  | "ACTIVITY"
-  | string;
+  "POST" | "CREATION" | "EXTENSION" | "PROFILE" | "SOCIETY" | "ACTIVITY";
 
 export type ContentCategory =
   | "POST_LIKED"
@@ -24,17 +18,16 @@ export type ContentCategory =
   | "SESSION_CREATED"
   | "COMMUNITY_ACTIVITY"
   | "FOLLOWED"
-  | "POST_VISIBILITY_CHANGED"
-  | string;
+  | "POST_VISIBILITY_CHANGED";
 
 export interface PostNotificationContentBase {
-  subject_type: "POST";
-  sender: string;
-  subject_oid: MongoDBId;
-  subject_outline: string;
   avatar: null;
+  sender: string;
   sender_id: MongoDBId;
   slug: UUID;
+  subject_oid: MongoDBId;
+  subject_outline: string;
+  subject_type: "POST";
 }
 
 export interface PostLikedContent extends PostNotificationContentBase {}
@@ -44,31 +37,31 @@ export interface PostFavContent extends PostNotificationContentBase {
 }
 
 export interface PostCommentContent {
-  ext: { slug: UUID } | null;
+  avatar: CNameOssUrl;
   comments: string;
-  subject_type: "POST";
+  ext: { slug: UUID } | null;
+  message: string | null;
   sender: string;
+  senderType: "STUDENT" | string;
+  sender_id: MongoDBId;
   subject_oid: MongoDBId;
   subject_outline: string;
-  senderType: "STUDENT" | string;
-  avatar: CNameOssUrl;
-  message: string | null;
-  sender_id: MongoDBId;
+  subject_type: "POST";
 }
 
 export interface CreationNotificationContentBase {
-  subject_type: "CREATION";
   sender: string;
-  subject_oid: MongoDBId;
   sender_id: MongoDBId;
+  subject_oid: MongoDBId;
+  subject_type: "CREATION";
 }
 
 export interface CreationLikeNotificationContent extends CreationNotificationContentBase {
-  homework_title: string;
-  homework_id: MongoDBId;
-  student_id: `${number}`;
   avatar: CNameOssUrl;
+  homework_id: MongoDBId;
+  homework_title: string;
   like_icon: CNameOssUrl;
+  student_id: `${number}`;
 }
 
 export interface CreationFavContent extends CreationNotificationContentBase {
@@ -77,87 +70,87 @@ export interface CreationFavContent extends CreationNotificationContentBase {
 }
 
 export interface CreationCommentedContent {
-  ext: null;
+  avatar: CNameOssUrl;
   comments: string;
-  subject_type: "CREATION";
+  ext: null;
+  message: string | null;
   sender: string;
+  senderType: "STUDENT" | string;
+  sender_id: MongoDBId;
   subject_oid: MongoDBId;
   subject_outline: string;
-  senderType: "STUDENT" | string;
-  avatar: CNameOssUrl;
-  message: string | null;
-  sender_id: MongoDBId;
+  subject_type: "CREATION";
 }
 
 export interface CreationShareContent {
-  subject_type: "CREATION";
-  subject_outline: string;
-  subject_oid: MongoDBId;
   sender_id: MongoDBId;
+  subject_oid: MongoDBId;
+  subject_outline: string;
+  subject_type: "CREATION";
 }
 
 export interface ExtensionLikedContent {
-  subject_type: "EXTENSION";
+  avatar: null;
   sender: string;
+  sender_id: MongoDBId;
   subject_oid: string;
   subject_outline: string;
-  avatar: null;
-  sender_id: MongoDBId;
+  subject_type: "EXTENSION";
 }
 
 export interface ExtensionCommentedContent {
-  ext: { target: MongoDBId } | null;
+  avatar: CNameOssUrl;
   comments: string;
-  subject_type: "EXTENSION";
+  ext: { target: MongoDBId } | null;
+  message: string | null;
   sender: string;
+  senderType: "STUDENT" | string;
+  sender_id: MongoDBId;
   subject_oid: string;
   subject_outline: string;
-  senderType: "STUDENT" | string;
-  avatar: CNameOssUrl;
-  message: string | null;
-  sender_id: MongoDBId;
+  subject_type: "EXTENSION";
 }
 
 export interface ExtensionCommentRepliedContent extends ExtensionCommentedContent {}
 
 export interface ProfileLeaveWordsContent {
-  ext: null;
+  avatar: CNameOssUrl;
   comments: string;
-  subject_type: "PROFILE";
+  ext: null;
+  message: string | null;
   sender: string;
+  senderType: "STUDENT" | string;
+  sender_id: MongoDBId;
   subject_oid: MongoDBId;
   subject_outline: string;
-  senderType: "STUDENT" | string;
-  avatar: CNameOssUrl;
-  message: string | null;
-  sender_id: MongoDBId;
+  subject_type: "PROFILE";
 }
 
 export interface SessionCreatedContent {
   comments: string;
-  subject_type: "SOCIETY";
   subject_oid: null;
+  subject_type: "SOCIETY";
 }
 
 export interface CommunityActivityContent {
   comments: string;
-  subject_type: "ACTIVITY";
   subject_oid: MongoDBId;
   subject_outline: string;
+  subject_type: "ACTIVITY";
 }
 
 export interface FollowedContent {
   comments: string;
-  subject_type: "SOCIETY";
   sender: string;
-  subject_oid: MongoDBId;
   sender_id: MongoDBId;
+  subject_oid: MongoDBId;
+  subject_type: "SOCIETY";
 }
 
 export interface PostVisibilityChangedContent {
   comments: string;
-  subject_type: "SOCIETY";
   subject_oid: null;
+  subject_type: "SOCIETY";
 }
 
 export type NotificationContent =
