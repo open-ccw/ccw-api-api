@@ -2,7 +2,7 @@ import { request } from "src/request";
 import { ApiResponse } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
 import { queryPage, DEFAULT_PAGE_ARGS } from "src/queryPages";
-import { NotificationGroup, Notification } from "src/types/notification";
+import { NotificationGroup, NotificationPage } from "src/types/notification";
 
 export const url = "https://community-web.ccw.site/notification/page";
 
@@ -11,7 +11,7 @@ export type Req = {
   page: number;
 };
 
-export type Res = PagesRes<Notification>;
+export type Res = PagesRes<NotificationPage>;
 
 /**
  * 分页获取通知列表
