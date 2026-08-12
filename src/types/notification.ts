@@ -5,6 +5,7 @@ import { POST_FAVORITE } from "./notification/post_fav";
 import { POST_LIKED } from "./notification/post_like";
 import { ASSET_MARKET_LIKED } from "./notification/asset_like";
 import { ASSET_MARKET_DONATE } from "./notification/asset_donate";
+import { ASSET_MARKET_PURCHASED } from "./notification/asset_purchased";
 import { CREATION_REMIXED } from "./notification/cre_remix";
 import { POST_COMMENT } from "./notification/post_comment";
 import { CREATION_COMMENT_REPLIED } from "./notification/cre_comment_reply";
@@ -22,6 +23,10 @@ import { COMMUNITY_ACTIVITY } from "./notification/community_activity";
 import { POST_VISIBILITY_CHANGED } from "./notification/post_visibility_changed";
 import { CREATION_RECOMMENDED_AS_POTENTIAL } from "./notification/creation_recommended_as_potential";
 import { CREATION_CHECKED } from "./notification/creation_checked";
+import { COMMENT_DELETED } from "./notification/comment_deleted";
+import { POST_RATED_AS_EXCELLENT } from "./notification/post_rated_as_excellent";
+import { REPORT_LOG_REJECTED } from "./notification/report_log_rejected";
+import { CREATION_BANNED } from "./notification/creation_banned";
 
 export type NotificationGroup =
   "CREATION_INTERACTION" | "COMMENT_TO_ME" | "FRIEND_SHARE" | "WEB_SYSTEM";
@@ -70,12 +75,17 @@ export type NotificationPage =
   | POST_VISIBILITY_CHANGED
   | ASSET_MARKET_LIKED
   | ASSET_MARKET_DONATE
+  | ASSET_MARKET_PURCHASED
   | TEAM_COMMENTED
   | FRIEND_INVITE
   | PROFILE_LEAVE_WORDS
   | FOLLOWED
   | SESSION_CREATED
-  | COMMUNITY_ACTIVITY;
+  | COMMUNITY_ACTIVITY
+  | COMMENT_DELETED
+  | POST_RATED_AS_EXCELLENT
+  | REPORT_LOG_REJECTED
+  | CREATION_BANNED;
 
 export interface NotificationStats {
   ACTIVITY_ASSISTANT: number;
