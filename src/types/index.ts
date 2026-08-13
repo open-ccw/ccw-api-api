@@ -9,6 +9,7 @@ export type * as Pages from "./pages";
 export type * as Session from "./session";
 export type * as UserData from "./userData";
 export type * as Mall from "./mall";
+export type { SearchResult } from "./search";
 
 export type { CREATION_FAVORITE } from "./notification/cre_fav";
 export type { CREATION_LIKED } from "./notification/cre_like";
