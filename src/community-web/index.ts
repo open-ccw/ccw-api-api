@@ -38,6 +38,7 @@ import { viewCreationStats } from "./creation_stats/view";
 import { getNotifyDeleteReasons } from "./notify_message/show";
 import { getPostDetail } from "./post/detail";
 import { getSearchHotWords } from "./search/hot_words";
+import { searchAll } from "./search/all";
 import { getStudentBlockRecordDetail } from "./student/block_record/detail";
 import { getStudentBlockRecordList } from "./student/block_record/list";
 import { getStudentBlockStatus } from "./student/block_record/status";
@@ -231,6 +232,7 @@ export const communityWeb = {
   resolveExternalIp,
   searchCloudAssets,
   searchCreationsByTag,
+  searchAll,
   sendEvent,
   setUserProductStatus,
   shareCreation,
