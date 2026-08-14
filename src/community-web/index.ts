@@ -120,12 +120,24 @@ import { getConnectCommunityFollowingStatus } from "./extensions/following/statu
 import { getConnectCommunityCreationLikeStatus } from "./extensions/creation-like/detail";
 import { followCreator } from "./study-community/following/follow";
 import { unfollowCreator } from "./study-community/following/unfollow";
+import { updateApproval } from "./approval/update";
+import { createSmartContract } from "./smart_contract/create";
+import { investSmartContract } from "./smart_contract/invest";
+import { getSmartContractTypeList } from "./smart_contract/type/list";
+import { getSmartContractEarningsPage } from "./smart_contract/earnings/page";
+import { getCreationDashboardOverview } from "./dashboard/creation/overview";
+import { getCreationDashboardMetrics } from "./dashboard/creation/metrics";
+import { getCreationDashboardMetricsDistribution } from "./dashboard/creation/metrics/distribution";
+import { getUserDashboardOverview } from "./dashboard/user/overview";
+import { getUserDashboardMetrics } from "./dashboard/user/metrics";
+import { getUserDashboardMetricsDetail } from "./dashboard/user/metrics/detail";
 
 export const communityWeb = {
   acceptAward,
   bindStudentPhone,
   changeStudentPassword,
   createCreation,
+  createSmartContract,
   donateTrade,
   encodeShortCode,
   executeSmartContract,
@@ -152,6 +164,9 @@ export const communityWeb = {
   getCreationActivityStatsList,
   getCreationAttributeDetail,
   getCreationDetail,
+  getCreationDashboardMetrics,
+  getCreationDashboardMetricsDistribution,
+  getCreationDashboardOverview,
   getCreationFavoriteDetail,
   getCreationIntroduction,
   getConnectCommunityCreationLikeStatus,
@@ -197,7 +212,9 @@ export const communityWeb = {
   getSearchHotWords,
   getSmartContractAccount,
   getSmartContractDetail,
+  getSmartContractEarningsPage,
   getSmartContractList,
+  getSmartContractTypeList,
   getSplitRuleDetail,
   getSpreadFeedUnreadCount,
   getStudentBlockRecordDetail,
@@ -220,12 +237,16 @@ export const communityWeb = {
   getTypicalProjectUnreadCount,
   getUserAssetStorageSize,
   getUserCardDetail,
+  getUserDashboardMetrics,
+  getUserDashboardMetricsDetail,
+  getUserDashboardOverview,
   getUserLabelList,
   getUserProductsPage,
   queryMallProducts,
   recommendUser,
   getCreationsByStudent,
   insertCheckInRecord,
+  investSmartContract,
   likeComment,
   produceTeamMemberTicket,
   resetCommentWeight,
@@ -243,5 +264,6 @@ export const communityWeb = {
   updateCreation,
   updateGreatCreation,
   updateStudent,
+  updateApproval,
   viewCreationStats,
 };
