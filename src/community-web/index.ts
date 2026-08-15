@@ -131,6 +131,9 @@ import { getCreationDashboardMetricsDistribution } from "./dashboard/creation/me
 import { getUserDashboardOverview } from "./dashboard/user/overview";
 import { getUserDashboardMetrics } from "./dashboard/user/metrics";
 import { getUserDashboardMetricsDetail } from "./dashboard/user/metrics/detail";
+import { searchStudents } from "./es_student/search";
+import { searchHashTags } from "./hash_tag/search/v2";
+import { searchPosts } from "./post/search";
 
 export const communityWeb = {
   acceptAward,
@@ -253,6 +256,9 @@ export const communityWeb = {
   resolveExternalIp,
   searchCloudAssets,
   searchCreationsByTag,
+  searchHashTags,
+  searchPosts,
+  searchStudents,
   searchAll,
   sendEvent,
   setUserProductStatus,

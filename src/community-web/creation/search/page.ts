@@ -12,6 +12,8 @@ const dpa: PageArgs<SortField> = {
 };
 
 export type Req = {
+  forEveryone?: boolean;
+  keyword?: string;
   oids?: string[];
   tag?: string;
 };
@@ -19,8 +21,9 @@ export type Res = PagesRes<CreationSimple>;
 
 /**
  * 搜索作品
- * @param {string} req.tag 标签 例如:游戏 动画故事 角色扮演 kukeChat
+ * @param {string} req.tag 标签 例如:游戏 动画故事 角色扮演
  * @param {string[]} req.oids 作品id列表
+ * @param {string} req.keyword 按作品名搜索
  * @param {Partial<PageArgs<SortField | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 作品分页结果
  */

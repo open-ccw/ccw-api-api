@@ -142,7 +142,7 @@ await createSmsCaptcha("10011451919");
 
 ## 模块二：Community-Web（community-web.ccw.site）
 
-覆盖作品 / 学生 / 星球 / 评论 / 通知 / 任务 / 表情 / 签到 / 云资产 / 学科专区 / 打赏 / 商城 / 商品 / 协作成员 等业务领域，共 **114 个 API**。
+覆盖作品 / 学生 / 星球 / 评论 / 通知 / 任务 / 表情 / 签到 / 云资产 / 学科专区 / 打赏 / 商城 / 商品 / 协作成员 / 智能合约 / 数据看板 / 搜索 等业务领域，共 **136 个 API**。
 下面是常用场景示例。
 
 ### 学生与作品
@@ -309,6 +309,18 @@ const account = await communityWeb.getSmartContractAccount(2022277721908162);
 const detail = await communityWeb.getSmartContractDetail(2022277721908162);
 // detail: { accountId, bizId, rules, status, title, type, ... }
 
+// 获取合约类型列表
+const types = await communityWeb.getSmartContractTypeList();
+// types: { title: "通用合约", type: "GENERAL" }[]
+
+// 创建智能合约（需要 token）
+const created = await communityWeb.createSmartContract(
+  "6a7e8b8b91223874330c4d8f", // bizId
+  "通用合约", // title
+  "GENERAL", // type
+);
+// created: { accountId, bizId, id, title, type, ... }
+
 // 执行合约（领取试玩奖励 / 玩家投币）
 const result = await communityWeb.executeSmartContract(
   "6a3fa1ed159ed52f170c34d2", // bizId
@@ -317,6 +329,20 @@ const result = await communityWeb.executeSmartContract(
   1, // bucks
 );
 // result: { success: true }
+
+// 向合约投币（需要 token）
+const invested = await communityWeb.investSmartContract(
+  2039166119812098, // contract id
+  1, // bucks
+);
+// invested: boolean
+
+// 分页查询合约收益
+const earnings = await communityWeb.getSmartContractEarningsPage(
+  [2039166119812098],
+  { page: 1, perPage: 20 },
+);
+// earnings: PagesRes<{ creation, earnings, smartContract }>
 ```
 
 ### 连接社区扩展
@@ -422,6 +448,66 @@ const logs = await communityWeb.getTeamworkLogPage(CREATION_OID, { page: 1 });
 // 将指定作品设为个人代表作（需要 token，creationOid 必须是自己的作品）
 await communityWeb.updateGreatCreation("68ce4849811b737483bf7027");
 // → true 表示成功
+```
+
+### 数据看板
+
+```ts
+// ====== 作品看板 ======
+
+// 作品数据概览（含环比增长）
+const overview = await communityWeb.getCreationDashboardOverview(
+  "69740f1a61b891733d5ee2c6",
+  "LAST_7_DAYS",
+);
+// overview: { playCount, playCountGrowth, income, incomeGrowth, commentCount, ... }
+
+// 作品按日指标
+const metrics = await communityWeb.getCreationDashboardMetrics(
+  "69740f1a61b891733d5ee2c6",
+  "LAST_7_DAYS",
+);
+// metrics: { createdAt, playCount, playTime, income, commentCount, favoriteCount, shareCount }[]
+
+// 作品播放分布
+const dist = await communityWeb.getCreationDashboardMetricsDistribution(
+  "69740f1a61b891733d5ee2c6",
+  "LAST_7_DAYS",
+);
+// dist: { playCountDistribution: { category, value }[], playTimeDistribution: { category, value }[] }
+
+// ====== 用户看板 ======
+
+// 用户数据概览
+const userOverview = await communityWeb.getUserDashboardOverview("LAST_7_DAYS");
+// userOverview: { playCount, income, playTime, commentCount, ... }
+
+// 用户按日指标
+const userMetrics = await communityWeb.getUserDashboardMetrics("LAST_7_DAYS");
+// userMetrics: DashboardMetricItem[]
+
+// 用户指标明细（按作品拆分）
+const detail = await communityWeb.getUserDashboardMetricsDetail(
+  "PLAY_COUNT", // 指标类型: PLAY_COUNT | PLAY_TIME | INCOME | FAVORITE_COUNT | COMMENT_COUNT | SHARE_COUNT
+  "LAST_7_DAYS",
+);
+// detail: { bizId, creation, proportion, value }[]
+```
+
+### 搜索
+
+```ts
+// 搜索学生（关键词匹配昵称，分页）
+const students = await communityWeb.searchStudents("aaa", { page: 1 });
+// students: PagesRes<SearchStudent>（含 approvalTagRelations、creations、followingStatus）
+
+// 搜索星球/话题（关键词匹配 identifier，分页）
+const tags = await communityWeb.searchHashTags("aaa", { page: 1 });
+// tags: PagesRes<HashTag>（identifier 含 <em> 高亮，含 memberCount、favoritedStudentCount）
+
+// 搜索帖子（关键词匹配标题/内容，分页）
+const posts = await communityWeb.searchPosts("aaa", { page: 1 });
+// posts: PagesRes<SearchPost>（含 author、featureImage、tags、rank）
 ```
 
 ---
