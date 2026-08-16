@@ -100,6 +100,8 @@ import { getHistoricalTeamMemberPage } from "./historical_team_member/page";
 import { decompressShortUrl } from "./short_url/decompress";
 import { getRecommendHashTags } from "./hash_tag/recommend/list";
 import { getCCWMainStatus } from "./ccw-main/status";
+import { translate } from "./ccw-main/external/translate";
+import { tts } from "./ccw-main/external/speech/tts";
 import { createCloudVariable } from "./study-community/cloud_variable/create";
 import { topComment } from "./study-community/comment/top";
 import { foldComment } from "./study-community/comment/fold";
@@ -159,6 +161,8 @@ export const communityWeb = {
   getApprovalTags,
   getCampaignResources,
   getCcwMainStatus: getCCWMainStatus,
+  translate,
+  tts,
   getCheckInRecords,
   getCodeProfilingDetail,
   getCommentReplies,

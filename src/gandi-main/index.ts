@@ -5,6 +5,7 @@ import {
   getLeaderboardRecords,
   submitLeaderboardRecord,
 } from "./creation/leaderboards/{oid}/records";
+import { chatWithGameAssistant } from "./ai/hub/chat-with-game-assistant";
 
 export const gandiMain = {
   getCurrentTimestamp,
@@ -12,4 +13,5 @@ export const gandiMain = {
   getBulletinDetail,
   submitLeaderboardRecord,
   getLeaderboardRecords,
+  chatWithGameAssistant,
 };

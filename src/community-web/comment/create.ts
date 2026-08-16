@@ -1,12 +1,7 @@
 import { request } from "src/request";
 import { ApiResponse, CNameOssUrl, MongoDBId } from "src/types/api";
 import { AccountTypes } from "src/types/account";
-import {
-  MinimalTopicInfo,
-  SectionType,
-  SubjectType,
-  TopicInfo,
-} from "src/types/comment";
+import { MinimalTopicInfo, SectionType } from "src/types/comment";
 
 export const url = "https://community-web.ccw.site/comment/create";
 
