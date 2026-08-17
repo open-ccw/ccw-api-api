@@ -1,6 +1,7 @@
 import { MongoDBId, CNameOssUrl } from "src/types/api";
 import { ApprovalTag } from "src/types/approval";
 import { AccountTypes } from "src/types/account";
+import { ApprovalStatus } from "src/community-web/approval/list";
 
 export interface BaseUser {
   avatar: CNameOssUrl;
@@ -53,7 +54,7 @@ export interface StudentOverview {
 export interface OtherUser extends BaseUser {
   accountOid: MongoDBId;
   accountType: AccountTypes;
-  approvalTagRelations: ApprovalTag[];
+  approvalTagRelations: ApprovalStatus<number, string>[];
   createdAt: number;
   currentCreationPlaytime: null;
   ext: {};
