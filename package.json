@@ -1,6 +1,6 @@
 {
   "name": "@ccw-api/api",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "ccw api collections",
   "license": "MIT",
   "author": "Meng Fuzi",
@@ -60,7 +60,7 @@
     "build": "tsdown"
   },
   "devDependencies": {
-    "@ccw-api/request": "^1.2.1",
+    "@ccw-api/request": "^1.2.3",
     "@types/blueimp-md5": "^2.18.2",
     "@types/node": "^26.0.1",
     "dotenv": "^17.4.2",
