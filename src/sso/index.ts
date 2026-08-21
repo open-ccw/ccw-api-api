@@ -5,6 +5,7 @@ import { createSmsCaptcha } from "./web/auth/assistant/captcha/v2/create";
 import { loginByPhone } from "./web/auth/v3/login/by-phone";
 import { oauthAuthorize } from "./oauth/authorize";
 import { getOauthToken } from "./oauth/token";
+import { touchSession } from "./internal/auth/touch-session";
 
 export const sso = {
   loginByPassword,
@@ -14,4 +15,5 @@ export const sso = {
   loginByPhone,
   oauthAuthorize,
   getOauthToken,
+  touchSession,
 };

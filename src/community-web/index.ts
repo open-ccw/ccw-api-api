@@ -30,6 +30,8 @@ import { getMyHashTagCreations } from "./hash_tag_creation/mine";
 import { getHashTagDetail } from "./hash_tag/detail";
 import { getManagedHashTags } from "./hash_tag/managed/list";
 import { getHashTagFavoriteDetail } from "./hash_tag_favorite/detail";
+import { getCloudProjectDetail } from "./study-cloud-database/cloud_project/detail";
+import { saveCloudProject } from "./study-cloud-database/cloud_project/save";
 import { getDonatedRecordRanking } from "./creation_donated_record/ranking_list";
 import { getCreationFavoriteDetail } from "./creation_favorite/detail";
 import { getCreationRecommendPositionList } from "./creation_recommend_position/list";
@@ -109,6 +111,8 @@ import { resetCommentWeight } from "./study-community/comment/reset_weight";
 import { deleteComment } from "./study-community/comment/delete";
 import { createComment } from "./comment/create";
 import { likeComment } from "./comment/like_record/create";
+import { unlikeComment } from "./comment/like_record/delete";
+import { createReportLog } from "./report_log/create";
 import { getStudentFollowingPage } from "./student/following/page";
 import { donateTrade } from "./study-trade/trade/donate";
 import { getUserProductsPage } from "./user_package/user_product";
@@ -150,6 +154,7 @@ export const communityWeb = {
   fetchObserverInviteToken,
   createCloudVariable,
   createComment,
+  createReportLog,
   createShortUrl,
   createSmsCaptchaBySession,
   createSplitRule,
@@ -175,6 +180,7 @@ export const communityWeb = {
   getCreationDashboardMetricsDistribution,
   getCreationDashboardOverview,
   getCreationFavoriteDetail,
+  getCloudProjectDetail,
   getCreationIntroduction,
   getConnectCommunityCreationLikeStatus,
   getCreationRecommendPositionList,
@@ -255,6 +261,7 @@ export const communityWeb = {
   insertCheckInRecord,
   investSmartContract,
   likeComment,
+  unlikeComment,
   produceTeamMemberTicket,
   resetCommentWeight,
   resolveExternalIp,
@@ -264,6 +271,7 @@ export const communityWeb = {
   searchPosts,
   searchStudents,
   searchAll,
+  saveCloudProject,
   sendEvent,
   setUserProductStatus,
   shareCreation,
