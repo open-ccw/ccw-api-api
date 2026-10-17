@@ -4,7 +4,8 @@ import { ApiResponse } from "src/types/api";
 export const url_ = "https://sso.ccw.site/oauth/authorize";
 
 /**
- * 获取加密后的oauth code, 此接口存在盗号漏洞, 近期被报告, 可能被修改
+ * 获取加密后的oauth code, 此接口存在盗号漏洞, 已被修改
+ * @deprecated
  * @returns {Promise<string>}
  */
 export async function oauthAuthorize(state: string): Promise<string> {

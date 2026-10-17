@@ -15,7 +15,8 @@ export type Extra = {
 };
 
 /**
- * 获取oauth token, 此接口存在盗号漏洞, 近期被报告, 可能被修改
+ * 获取oauth token, 此接口存在盗号漏洞, 已被修改
+ * @deprecated
  * @returns {Promise<string>}
  */
 export async function getOauthToken(code: string): Promise<Res<Extra>> {

@@ -142,7 +142,7 @@ await createSmsCaptcha("10011451919");
 
 ## 模块二：Community-Web（community-web.ccw.site）
 
-覆盖作品 / 学生 / 星球 / 评论 / 通知 / 任务 / 表情 / 签到 / 云资产 / 学科专区 / 打赏 / 商城 / 商品 / 协作成员 / 智能合约 / 数据看板 / 搜索 等业务领域，共 **136 个 API**。
+覆盖作品 / 学生 / 星球 / 评论 / 通知 / 任务 / 表情 / 签到 / 云资产 / 学科专区 / 打赏 / 商城 / 商品 / 协作成员 / 智能合约 / 数据看板 / 搜索 / 存储直传 等业务领域，共 **137 个 API**。
 下面是常用场景示例。
 
 ### 学生与作品
@@ -508,6 +508,27 @@ const tags = await communityWeb.searchHashTags("aaa", { page: 1 });
 // 搜索帖子（关键词匹配标题/内容，分页）
 const posts = await communityWeb.searchPosts("aaa", { page: 1 });
 // posts: PagesRes<SearchPost>（含 author、featureImage、tags、rank）
+```
+
+### 存储直传（COS Post-Policy）
+
+```ts
+// 获取 COS 直传策略（需要 token）
+// 前端拿到 policy 后直接向 COS POST 上传文件，无需经过后端中转
+const policy = await communityWeb.getStoragePostPolicy(
+  "PROJECT_ASSET", // purpose: 存储用途
+  "6a894bdda3844117c1b255ee", // projectOid
+  "0d9f53f25aad33c6fb5fc98e03e97770.svg", // fileName
+  "image/svg+xml", // contentType
+  14866, // fileSize（字节）
+  "0d9f53f25aad33c6fb5fc98e03e97770", // contentHash
+);
+// policy: {
+//   bucket, expireAt, forbidOverwrite, objectKey, objectPrefix,
+//   provider: "COS", resourceUrl, reviewRequired, reviewType, url,
+//   fields: { "q-sign-algorithm", "q-ak", "q-signature", policy, ... }
+// }
+// 上传成功后文件访问地址: policy.resourceUrl
 ```
 
 ---

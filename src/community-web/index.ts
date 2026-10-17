@@ -140,6 +140,7 @@ import { getUserDashboardMetricsDetail } from "./dashboard/user/metrics/detail";
 import { searchStudents } from "./es_student/search";
 import { searchHashTags } from "./hash_tag/search/v2";
 import { searchPosts } from "./post/search";
+import { getStoragePostPolicy } from "./storage/post-policy";
 
 export const communityWeb = {
   acceptAward,
@@ -230,6 +231,7 @@ export const communityWeb = {
   getSmartContractTypeList,
   getSplitRuleDetail,
   getSpreadFeedUnreadCount,
+  getStoragePostPolicy,
   getStudentBlockRecordDetail,
   getStudentBlockRecordList,
   getStudentBlockStatus,
