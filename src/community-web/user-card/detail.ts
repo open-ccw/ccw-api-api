@@ -1,21 +1,20 @@
 import { request } from "src/request";
 import { ApiResponse, MongoDBId, CNameOssUrl } from "src/types/api";
-import { CreationMinimal } from "src/types/creation";
+import { Creation } from "src/types/creation";
+import { SearchResult } from "src/types/search";
 
 export const url = "https://community-web.ccw.site/user-card/detail";
 
-export type UserCardApprovalTag = {
-  iconLink: CNameOssUrl;
-  id: number;
-  mediumImage: CNameOssUrl;
-  name: string;
+/** 作品卡片展示的作品：在完整 Creation 基础上增加 contentUnavailable */
+export type UserCardCreation = Creation & {
+  contentUnavailable: null | boolean;
 };
 
 export type UserCardUser = {
-  approvalTags: UserCardApprovalTag[];
+  approvalTags: SearchResult.SearchApprovalTagRelation[];
   avatar: CNameOssUrl;
   bio: string;
-  followingStatus: null | string;
+  followingStatus: null | "UNFOLLOWED" | "FOLLOWED" | "BOTH_FOLLOWED";
   identityAuthRank: string;
   name: string;
   oid: MongoDBId;
@@ -30,7 +29,7 @@ export type UserCardUser = {
     followingCount: number;
     likeCount: number;
   };
-  virtualValue: CNameOssUrl;
+  virtualValue: CNameOssUrl | null;
 };
 
 export type Req = {
@@ -38,7 +37,7 @@ export type Req = {
 };
 
 export type Res = {
-  creation: CreationMinimal | null;
+  creation: UserCardCreation | null;
   user: UserCardUser;
 };
 

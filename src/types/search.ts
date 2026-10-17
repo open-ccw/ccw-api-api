@@ -49,7 +49,7 @@ export namespace SearchResult {
     tag: string | null;
   }
 
-  interface SearchApprovalTagRelation {
+  export interface SearchApprovalTagRelation {
     adorned: boolean;
     approvalIconLink: CNameOssUrl;
     approvalTag: SearchApprovalTag;
