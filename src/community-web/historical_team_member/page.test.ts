@@ -1,9 +1,9 @@
-import { getHistoricalTeamMemberPage } from "./page";
+﻿import { getHistoricalTeamMember } from "./page";
 import { test, hasKeyPath } from "src/testUtils";
 import assert from "node:assert/strict";
 
 test("get historical team member page returns PagesRes without token", async () => {
-  const result = await getHistoricalTeamMemberPage(
+  const result = await getHistoricalTeamMember(
     "63c2807d669fa967f17f5559",
   );
   assert.ok(hasKeyPath(result, "data"), "expected property to exist");

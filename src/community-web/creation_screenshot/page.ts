@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { DEFAULT_PAGE_ARGS, queryPage } from "src/queryPages";
 import { ApiResponse, MongoDBId } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
@@ -17,7 +17,7 @@ export type Res = PagesRes<CreationScreenshot>;
  * @param {Partial<PageArgs<"createdAt" | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 分页截图列表
  */
-export async function getCreationScreenshotPage<T extends string>(
+export async function getCreationScreenshot<T extends string>(
   subjectOid: MongoDBId,
   pageArgs_: Partial<PageArgs<"createdAt" | T>> = {},
 ): Promise<Res> {

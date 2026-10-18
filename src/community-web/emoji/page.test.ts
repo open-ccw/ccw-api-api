@@ -1,9 +1,9 @@
-import { getEmojiPage } from "./page";
+﻿import { getEmoji } from "./page";
 import { test } from "src/testUtils";
 import assert from "node:assert/strict";
 
 test("get emoji page should return data", async () => {
-  const res = await getEmojiPage("PUBLISHED", { perPage: 5 });
+  const res = await getEmoji("PUBLISHED", { perPage: 5 });
   assert.ok(((res.data) !== undefined), "expected value to be defined");
   assert.strictEqual(Array.isArray(res.data), (true), "expected values to be strictly equal");
   assert.ok(((res.totalNum) !== undefined), "expected value to be defined");

@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { ApiResponse } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
 import { queryPage, DEFAULT_PAGE_ARGS } from "src/queryPages";
@@ -22,7 +22,7 @@ export type EmojiStatus = "ENABLED" | "PUBLISHED";
  * @param {Partial<PageArgs<"createdAt" | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 分页表情包数据
  */
-export async function getEmojiPage<T extends string>(
+export async function getEmoji<T extends string>(
   status: EmojiStatus = "ENABLED",
   pageArgs_: Partial<PageArgs<"createdAt" | T>> = {
     sortField: "createdAt",

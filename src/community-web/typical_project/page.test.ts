@@ -1,9 +1,9 @@
-import { getTypicalProjectPage } from "./page";
+﻿import { getTypicalProject } from "./page";
 import { test, hasKeyPath } from "src/testUtils";
 import assert from "node:assert/strict";
 
 test("get typical project page returns PagesRes without token", async () => {
-  const result = await getTypicalProjectPage("63c2807d669fa967f17f5559");
+  const result = await getTypicalProject("63c2807d669fa967f17f5559");
   assert.ok(hasKeyPath(result, "data"), "expected property to exist");
   assert.ok(hasKeyPath(result, "page"), "expected property to exist");
   assert.ok(hasKeyPath(result, "perPage"), "expected property to exist");

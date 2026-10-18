@@ -1,10 +1,10 @@
 {
   "name": "@ccw-api/api",
-  "version": "2.1.12",
+  "version": "2.1.13",
   "description": "ccw api collections",
   "license": "MIT",
   "author": "Meng Fuzi",
-  "homepage": "https://schale.qzz.io/ccw-api-api/",
+  "homepage": "https://open-ccw.github.io/ccw-api-api/",
   "type": "module",
   "types": "./dist/index.d.ts",
   "module": "./dist/index.js",

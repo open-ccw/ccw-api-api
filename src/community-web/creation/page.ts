@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { ApiResponse, MongoDBId } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
 import { CreationSimple } from "src/types/creation";
@@ -23,7 +23,7 @@ export type Res = PagesRes<CreationSimple>;
  * @param {Partial<PageArgs<SortField | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 改编作品分页结果
  */
-export async function getRemixedCreationPage<T extends string>(
+export async function getRemixedCreation<T extends string>(
   originCreationOids: MongoDBId[],
   pageArgs_: Partial<PageArgs<SortField | T>> = {},
 ): Promise<Res> {

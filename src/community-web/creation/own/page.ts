@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { DEFAULT_PAGE_ARGS, queryPage } from "src/queryPages";
 import { ApiResponse } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
@@ -22,7 +22,7 @@ export type Res = PagesRes<CreationSimple>;
  * @param {ProjectStatus[]} statuses 作品状态过滤
  * @returns {Promise<Res>} 自己的作品分页列表
  */
-export async function getOwnCreationPage<T extends string>(
+export async function getOwnCreation<T extends string>(
   pageArgs_: Partial<PageArgs<SortField | T>> = {
     sortField: "updatedAt",
   },

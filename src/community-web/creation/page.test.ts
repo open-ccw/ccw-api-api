@@ -1,4 +1,4 @@
-import { getRemixedCreationPage } from "./page";
+﻿import { getRemixedCreation } from "./page";
 import { getExcellentCreations } from "./excellent/list";
 import { test, beforeAll } from "src/testUtils";
 import assert from "node:assert/strict";
@@ -16,6 +16,6 @@ test("get creation page should return data", async () => {
   if (!sampleCreationOid) {
     return;
   }
-  const res = await getRemixedCreationPage([sampleCreationOid]);
+  const res = await getRemixedCreation([sampleCreationOid]);
   assert.strictEqual(Array.isArray(res.data), (true), "expected values to be strictly equal");
 });

@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { DEFAULT_PAGE_ARGS, queryPage } from "src/queryPages";
 import { ApiResponse, MongoDBId } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
@@ -20,7 +20,7 @@ export type Res = PagesRes<
  * @param {Partial<PageArgs<"createdAt" | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 关注列表分页
  */
-export async function getStudentFollowingPage<T extends string>(
+export async function getStudentFollowing<T extends string>(
   studentOid: MongoDBId,
   pageArgs_: Partial<PageArgs<"createdAt" | T>> = {
     sortField: "createdAt",

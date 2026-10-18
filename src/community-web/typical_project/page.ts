@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { DEFAULT_PAGE_ARGS, queryPage } from "src/queryPages";
 import { ApiResponse, MongoDBId } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
@@ -33,7 +33,7 @@ export type Res = PagesRes<TypicalProjectItem>;
  * @param {Partial<PageArgs<"createdAt" | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 应用课工程文件项目分页列表
  */
-export async function getTypicalProjectPage<T extends string>(
+export async function getTypicalProject<T extends string>(
   studentOid: MongoDBId,
   pageArgs_: Partial<PageArgs<"createdAt" | T>> = {
     sortField: "createdAt",

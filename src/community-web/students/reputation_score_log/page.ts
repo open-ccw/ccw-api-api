@@ -12,7 +12,7 @@ export type Req = {};
 export type Res = PagesRes<ReputationScoreLog>;
 
 /**
- * 获取学生信誉分记录
+ * 获取学生信誉分增减记录
  * @param {Partial<PageArgs<"createdAt" | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 信誉分记录分页数据
  */

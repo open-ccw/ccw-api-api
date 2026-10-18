@@ -1,4 +1,4 @@
-# @ccw-api/api
+﻿# @ccw-api/api
 
 CCW（创作社区）前后端接口 SDK，整合 `sso.ccw.site`、`community-web.ccw.site`、
 `gandi-main.ccw.site`、`bfs-web.ccw.site`、`community-web-cloud-database.ccw.site`、
@@ -211,7 +211,7 @@ import type {
   FollowedContent,
 } from "@ccw-api/api";
 
-const page = await communityWeb.getNotificationPage("COMMENT_TO_ME", {
+const page = await communityWeb.getNotification("COMMENT_TO_ME", {
   page: 1,
   perPage: 20,
 });
@@ -259,7 +259,7 @@ const coin = await communityWeb.getPersonalCurrencyAccount();
 // 全部表情包 + 分页 + 分类
 const [allEmoji, emojiPage, categories] = await Promise.all([
   communityWeb.getAllEmojis(),
-  communityWeb.getEmojiPage("ENABLED", { page: 1, perPage: 50 }),
+  communityWeb.getEmoji("ENABLED", { page: 1, perPage: 50 }),
   communityWeb.getEmojiCategoryList(),
 ]);
 
@@ -338,7 +338,7 @@ const invested = await communityWeb.investSmartContract(
 // invested: boolean
 
 // 分页查询合约收益
-const earnings = await communityWeb.getSmartContractEarningsPage(
+const earnings = await communityWeb.getSmartContractEarnings(
   [2039166119812098],
   { page: 1, perPage: 20 },
 );
@@ -439,7 +439,7 @@ const members = await communityWeb.getTeamMemberList(CREATION_OID);
 await communityWeb.produceTeamMemberTicket(CREATION_OID, memberToken);
 
 // 查询协作日志分页（需要 token）
-const logs = await communityWeb.getTeamworkLogPage(CREATION_OID, { page: 1 });
+const logs = await communityWeb.getTeamworkLog(CREATION_OID, { page: 1 });
 ```
 
 ### 更换代表作
@@ -693,7 +693,7 @@ await communityWeb.createSmsCaptchaBySession("change_password");
 await communityWeb.getLeafletsItemList(1001);
 
 // 学科专区（分页 / 按频道）
-await communityWeb.getSubjectAreaPage({ page: 1, perPage: 20 });
+await communityWeb.getSubjectArea({ page: 1, perPage: 20 });
 await communityWeb.getSubjectAreaPageByChannel("PRIMARY");
 
 // 搜索热词

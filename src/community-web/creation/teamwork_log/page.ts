@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { DEFAULT_PAGE_ARGS, queryPage } from "src/queryPages";
 import { ApiResponse, CNameOssUrl, MongoDBId } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
@@ -60,7 +60,7 @@ export type Res<T> = PagesRes<TeamworkLogItem<T>>;
  * @param {Partial<PageArgs<SortField | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 协作日志分页列表
  */
-export async function getTeamworkLogPage<T extends string>(
+export async function getTeamworkLog<T extends string>(
   creationId: MongoDBId,
   operateTargets: OperateTargets[],
   pageArgs_: Partial<PageArgs<SortField | T>> = {

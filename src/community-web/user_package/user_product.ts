@@ -45,7 +45,7 @@ export enum ProductCategory {
  * @param {Partial<PageArgs<SortField>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 分页用户商品数据
  */
-export async function getUserProductsPage<SortField extends string>(
+export async function getUserProducts<SortField extends string>(
   productCategory: ProductCategory = ProductCategory.AVATAR_FRAME,
   pageArgs_: Partial<PageArgs<SortField>> = {},
 ): Promise<Res> {

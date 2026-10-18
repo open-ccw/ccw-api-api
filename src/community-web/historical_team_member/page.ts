@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { DEFAULT_PAGE_ARGS, queryPage } from "src/queryPages";
 import { ApiResponse, MongoDBId } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
@@ -20,7 +20,7 @@ export type Res = PagesRes<Record<string, never>>;
  * @param {Partial<PageArgs<string | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 历史团队成员分页列表
  */
-export async function getHistoricalTeamMemberPage<T extends string>(
+export async function getHistoricalTeamMember<T extends string>(
   creationOid: MongoDBId,
   pageArgs_: Partial<PageArgs<string | T>> = {
     sortField: "createdAt",

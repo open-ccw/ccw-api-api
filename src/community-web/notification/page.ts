@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { ApiResponse } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
 import { queryPage, DEFAULT_PAGE_ARGS } from "src/queryPages";
@@ -19,7 +19,7 @@ export type Res = PagesRes<NotificationPage>;
  * @param {Partial<PageArgs<"createdAt" | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 分页通知数据
  */
-export async function getNotificationPage<T extends string>(
+export async function getNotification<T extends string>(
   notifyGroup: NotificationGroup = "COMMENT_TO_ME",
   pageArgs_: Partial<PageArgs<"createdAt" | T>> = {
     sortField: "createdAt",

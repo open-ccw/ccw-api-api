@@ -20,7 +20,7 @@ export type Res = PagesRes<CreationRelease>;
  * @param {Partial<PageArgs<SortField | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 发布记录分页列表
  */
-export async function getCreationReleasePage<T extends string>(
+export async function getCreationRelease<T extends string>(
   creationOid: MongoDBId,
   pageArgs_: Partial<PageArgs<SortField | T>> = {
     sortField: "submittedAt",

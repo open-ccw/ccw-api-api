@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { DEFAULT_PAGE_ARGS, queryPage } from "src/queryPages";
 import { ApiResponse, MongoDBId, CNameOssUrl } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
@@ -79,7 +79,7 @@ export type Res = PagesRes<SubjectAreaItem>;
  * @param {Partial<PageArgs<"createdAt" | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 主页推荐分页数据
  */
-export async function getSubjectAreaPage<T extends string>(
+export async function getSubjectArea<T extends string>(
   scene: SubjectAreaScene,
   pageArgs_: Partial<PageArgs<"createdAt" | T>> = {
     sortField: "createdAt",

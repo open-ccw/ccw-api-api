@@ -1,10 +1,10 @@
-import { getUserProductsPage, ProductCategory } from "./user_product";
+import { getUserProducts, ProductCategory } from "./user_product";
 import { test, testAuthReadApi, expectKeys } from "src/testUtils";
 
 test("should fail without token for avatar frame products", async () => {
   await testAuthReadApi(
     () =>
-      getUserProductsPage(ProductCategory.AVATAR_FRAME, {
+      getUserProducts(ProductCategory.AVATAR_FRAME, {
         page: 1,
         perPage: 8,
         sortType: "DESC",

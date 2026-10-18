@@ -1,4 +1,4 @@
-import { encodeShortCode } from "./api/v1/short_code/encode";
+﻿import { encodeShortCode } from "./api/v1/short_code/encode";
 import { getApprovalTags } from "./approval/list";
 import { getTime } from "./base/dateTime";
 import { getCampaignResources } from "./campaign_resource/detail";
@@ -16,7 +16,7 @@ import { getExcellentCreations } from "./creation/excellent/list";
 import { getCreationIntroduction } from "./creation/introduction/detail";
 import { getLikeDetail } from "./creation/like/detail";
 import { getLoadingTips } from "./creation/loading/tips";
-import { getRemixedCreationPage } from "./creation/page";
+import { getRemixedCreation } from "./creation/page";
 import { getCreationsByStudent } from "./creation/page_by_student";
 import { getPotentialCreations } from "./creation/potential/list";
 import { getRecommendCreations } from "./creation/recommend";
@@ -35,7 +35,7 @@ import { saveCloudProject } from "./study-cloud-database/cloud_project/save";
 import { getDonatedRecordRanking } from "./creation_donated_record/ranking_list";
 import { getCreationFavoriteDetail } from "./creation_favorite/detail";
 import { getCreationRecommendPositionList } from "./creation_recommend_position/list";
-import { getCreationScreenshotPage } from "./creation_screenshot/page";
+import { getCreationScreenshot } from "./creation_screenshot/page";
 import { viewCreationStats } from "./creation_stats/view";
 import { getNotifyDeleteReasons } from "./notify_message/show";
 import { getPostDetail } from "./post/detail";
@@ -55,7 +55,7 @@ import { getStudentStats } from "./students/stats";
 import { updateStudent } from "./students/update";
 import { getStudyCommunityMemberDetail } from "./study-community/member/detail";
 import { getSpreadFeedUnreadCount } from "./study-community/spread_feed/unread/count";
-import { getSubjectAreaPage } from "./subject_area/page";
+import { getSubjectArea } from "./subject_area/page";
 import { getSubjectAreaPageByChannel } from "./subject_area/page_by_channel";
 import { acceptAward } from "./task/award";
 import { getMyTasks } from "./task/mine";
@@ -64,7 +64,7 @@ import { getUserLabelList } from "./user_label/list";
 import { getPersonalCurrencyAccount } from "./currency/account/personal";
 import { getAllEmojis } from "./emoji/all";
 import { getEmojiCategoryList } from "./emoji/category/list";
-import { getEmojiPage } from "./emoji/page";
+import { getEmoji } from "./emoji/page";
 import { resolveExternalIp } from "./study-main/external/ip/resolve";
 import { getDistrictList } from "./study-main/districts/list";
 import { getSchoolList } from "./study-main/schools/list";
@@ -77,16 +77,16 @@ import { getLockedUserDetail } from "./locked_user/detail";
 import { getMutedUserDetail } from "./muted_user/detail";
 import { shareCreationToFriend } from "./notification/creation_share";
 import { recommendUser } from "./notification/user_recommend";
-import { getNotificationPage } from "./notification/page";
+import { getNotification } from "./notification/page";
 import { getNotificationStats } from "./notification/stats/v2";
-import { getTypicalProjectPage } from "./typical_project/page";
+import { getTypicalProject } from "./typical_project/page";
 import { getTypicalProjectUnreadCount } from "./typical_project/student/unread_count";
-import { getOwnCreationPage } from "./creation/own/page";
+import { getOwnCreation } from "./creation/own/page";
 import { fetchObserverInviteToken } from "./creation/team_member/observer_invite_token/fetch";
 import { fetchMemberInviteToken } from "./creation/team_member/invite_token/fetch";
 import { produceTeamMemberTicket } from "./creation/team_member/produce_ticket";
 import { getTeamMemberList } from "./creation/team_member/list";
-import { getTeamworkLogPage } from "./creation/teamwork_log/page";
+import { getTeamworkLog } from "./creation/teamwork_log/page";
 import { updateCreation } from "./creation/update";
 import { submitCreation } from "./creation/submit";
 import { getSplitRuleDetail } from "./creation/smart_contract/split_rule/detail";
@@ -96,9 +96,9 @@ import { createSmsCaptchaBySession } from "./captcha/v2/create-by-session";
 import { createSplitRule } from "./creation/smart_contract/split_rule/create";
 import { getCreationAttributeDetail } from "./creation_attribute/detail";
 import { getCreationActivityStatsList } from "./creation_activity_stats/list";
-import { getCreationReleasePage } from "./creation_release/page";
+import { getCreationRelease } from "./creation_release/page";
 import { getCodeProfilingDetail } from "./creation_release/code_profiling/detail";
-import { getHistoricalTeamMemberPage } from "./historical_team_member/page";
+import { getHistoricalTeamMember } from "./historical_team_member/page";
 import { decompressShortUrl } from "./short_url/decompress";
 import { getRecommendHashTags } from "./hash_tag/recommend/list";
 import { getCCWMainStatus } from "./ccw-main/status";
@@ -113,9 +113,9 @@ import { createComment } from "./comment/create";
 import { likeComment } from "./comment/like_record/create";
 import { unlikeComment } from "./comment/like_record/delete";
 import { createReportLog } from "./report_log/create";
-import { getStudentFollowingPage } from "./student/following/page";
+import { getStudentFollowing } from "./student/following/page";
 import { donateTrade } from "./study-trade/trade/donate";
-import { getUserProductsPage } from "./user_package/user_product";
+import { getUserProducts } from "./user_package/user_product";
 import { setUserProductStatus } from "./user_package/status";
 import { updateGreatCreation } from "./great_creation/update";
 import { executeSmartContract } from "./smart_contract/execute";
@@ -130,7 +130,7 @@ import { updateApproval } from "./approval/update";
 import { createSmartContract } from "./smart_contract/create";
 import { investSmartContract } from "./smart_contract/invest";
 import { getSmartContractTypeList } from "./smart_contract/type/list";
-import { getSmartContractEarningsPage } from "./smart_contract/earnings/page";
+import { getSmartContractEarnings } from "./smart_contract/earnings/page";
 import { getCreationDashboardOverview } from "./dashboard/creation/overview";
 import { getCreationDashboardMetrics } from "./dashboard/creation/metrics";
 import { getCreationDashboardMetricsDistribution } from "./dashboard/creation/metrics/distribution";
@@ -141,6 +141,7 @@ import { searchStudents } from "./es_student/search";
 import { searchHashTags } from "./hash_tag/search/v2";
 import { searchPosts } from "./post/search";
 import { getStoragePostPolicy } from "./storage/post-policy";
+import { replyComment } from "./comment/reply";
 
 export const communityWeb = {
   acceptAward,
@@ -166,7 +167,7 @@ export const communityWeb = {
   unfollowCreator,
   getApprovalTags,
   getCampaignResources,
-  getCcwMainStatus: getCCWMainStatus,
+  getCCWMainStatus,
   translate,
   tts,
   getCheckInRecords,
@@ -185,8 +186,8 @@ export const communityWeb = {
   getCreationIntroduction,
   getConnectCommunityCreationLikeStatus,
   getCreationRecommendPositionList,
-  getCreationReleasePage,
-  getCreationScreenshotPage,
+  getCreationRelease,
+  getCreationScreenshot,
   getCreationStudentDetail,
   getCreationTags,
   getDistrictList,
@@ -196,11 +197,11 @@ export const communityWeb = {
   getExcellentCreations,
   getConnectCommunityFollowingStatus,
   getEmojiCategoryList,
-  getEmojiPage,
+  getEmoji,
   getAllEmojis,
   getHashTagDetail,
   getHashTagFavoriteDetail,
-  getHistoricalTeamMemberPage,
+  getHistoricalTeamMember,
   getManagedHashTags,
   getHealthCheck,
   getLeafletsItemList,
@@ -211,9 +212,9 @@ export const communityWeb = {
   getMyHashTagCreations,
   getMyTasks,
   getNotifyDeleteReasons,
-  getNotificationPage,
+  getNotification,
   getNotificationStats,
-  getOwnCreationPage,
+  getOwnCreation,
   getPersonalCurrencyAccount,
   getPlanetsOfCreation,
   getPostDetail,
@@ -221,12 +222,12 @@ export const communityWeb = {
   getRecommendCreations,
   getRecommendCreators,
   getRecommendHashTags,
-  getRemixedCreationPage,
-  getReputationScoreLogPage: getReputationScoreLog,
+  getRemixedCreation,
+  getReputationScoreLog,
   getSearchHotWords,
   getSmartContractAccount,
   getSmartContractDetail,
-  getSmartContractEarningsPage,
+  getSmartContractEarnings,
   getSmartContractList,
   getSmartContractTypeList,
   getSplitRuleDetail,
@@ -235,7 +236,7 @@ export const communityWeb = {
   getStudentBlockRecordDetail,
   getStudentBlockRecordList,
   getStudentBlockStatus,
-  getStudentFollowingPage,
+  getStudentFollowing,
   getStudentLastActiveAt,
   getStudentProfile,
   getStudentSelfDetail,
@@ -243,12 +244,12 @@ export const communityWeb = {
   getStudentsList,
   getStudentStats,
   getStudyCommunityMemberDetail,
-  getSubjectAreaPage,
+  getSubjectArea,
   getSubjectAreaPageByChannel,
   getTeamMemberList,
-  getTeamworkLogPage,
+  getTeamworkLog,
   getTime,
-  getTypicalProjectPage,
+  getTypicalProject,
   getTypicalProjectUnreadCount,
   getUserAssetStorageSize,
   getUserCardDetail,
@@ -256,7 +257,7 @@ export const communityWeb = {
   getUserDashboardMetricsDetail,
   getUserDashboardOverview,
   getUserLabelList,
-  getUserProductsPage,
+  getUserProducts,
   queryMallProducts,
   recommendUser,
   getCreationsByStudent,
@@ -265,6 +266,7 @@ export const communityWeb = {
   likeComment,
   unlikeComment,
   produceTeamMemberTicket,
+  replyComment,
   resetCommentWeight,
   resolveExternalIp,
   searchCloudAssets,

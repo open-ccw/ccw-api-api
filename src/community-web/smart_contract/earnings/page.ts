@@ -1,4 +1,4 @@
-import { request } from "src/request";
+﻿import { request } from "src/request";
 import { DEFAULT_PAGE_ARGS, queryPage } from "src/queryPages";
 import { ApiResponse } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
@@ -27,7 +27,7 @@ export type Res = PagesRes<EarningsItem>;
  * @param {Partial<PageArgs<string>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 收益分页数据
  */
-export async function getSmartContractEarningsPage(
+export async function getSmartContractEarnings(
   smartContractIds: number[],
   pageArgs_: Partial<PageArgs<string>> = {},
 ): Promise<Res> {
