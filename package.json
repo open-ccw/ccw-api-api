@@ -55,6 +55,7 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "test": "tsx --import ./src/before.test.ts --test",
+    "typecheck": "tsc --noEmit",
     "doc": "typedoc",
     "doc:dev": "typedoc --watch",
     "build": "tsdown"
@@ -67,7 +68,8 @@
     "prettier-plugin-sort-members": "^0.2.4",
     "tsdown": "^0.23.1",
     "tsx": "^4.19.2",
-    "typedoc": "^0.28.19"
+    "typedoc": "^0.28.19",
+    "typescript": "^5.9.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
