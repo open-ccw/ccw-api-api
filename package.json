@@ -65,7 +65,7 @@
     "@types/node": "^26.0.1",
     "dotenv": "^17.4.2",
     "prettier-plugin-sort-members": "^0.2.4",
-    "tsdown": "^0.22.9",
+    "tsdown": "^0.23.1",
     "tsx": "^4.19.2",
     "typedoc": "^0.28.19"
   },
