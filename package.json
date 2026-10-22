@@ -69,7 +69,7 @@
     "tsdown": "^0.23.1",
     "tsx": "^4.19.2",
     "typedoc": "^0.28.19",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
