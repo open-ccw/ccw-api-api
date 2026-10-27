@@ -13,7 +13,7 @@
 <h1>Type Alias Req</h1></div>
 <div class="tsd-signature"><span class="tsd-signature-keyword">type</span> <span class="tsd-kind-type-alias">Req</span> <span class="tsd-signature-symbol">=</span> <span class="tsd-signature-symbol">{</span><br/>    <a class="tsd-kind-property" href="#commenter">commenter</a><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-symbol">{</span><br/>        <span class="tsd-kind-property">accountOid</span><span class="tsd-signature-symbol">:</span> <a href="types_api.MongoDBId.html" class="tsd-signature-type tsd-kind-type-alias">MongoDBId</a><span class="tsd-signature-symbol">;</span><br/>        <span class="tsd-kind-property">accountType</span><span class="tsd-signature-symbol">:</span> <a href="types_account.AccountTypes.html" class="tsd-signature-type tsd-kind-type-alias">AccountTypes</a><span class="tsd-signature-symbol">;</span><br/>        <span class="tsd-kind-property">avatar</span><span class="tsd-signature-symbol">:</span> <a href="types_api.CNameOssUrl.html" class="tsd-signature-type tsd-kind-type-alias">CNameOssUrl</a><span class="tsd-signature-symbol">;</span><br/>    <span class="tsd-signature-symbol">}</span><span class="tsd-signature-symbol">;</span><br/>    <a class="tsd-kind-property" href="#content">content</a><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">;</span><br/>    <a class="tsd-kind-property" href="#parentid">parentId</a><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <a class="tsd-kind-property" href="#replytoid">replyToId</a><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">;</span><br/>    <a class="tsd-kind-property" href="#sectiontype">sectionType</a><span class="tsd-signature-symbol">:</span> <a href="types_comment.SectionType.html" class="tsd-signature-type tsd-kind-type-alias">SectionType</a><span class="tsd-signature-symbol">;</span><br/>    <a class="tsd-kind-property" href="#topic">topic</a><span class="tsd-signature-symbol">:</span> <a href="types_comment.MinimalTopicInfo.html" class="tsd-signature-type tsd-kind-type-alias">MinimalTopicInfo</a><span class="tsd-signature-symbol">;</span><br/><span class="tsd-signature-symbol">}</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/a8849a30cd2da92b97b1bb9d16c5e4f08bd63a82/src/community-web/comment/create.ts#L8">src/community-web/comment/create.ts:8</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/f6b7755e9855eb6f764ea7e2789a43b1976c03fe/src/community-web/comment/create.ts#L8">src/community-web/comment/create.ts:8</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-accordion" open><summary class="tsd-accordion-summary tsd-index-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
@@ -37,36 +37,36 @@
 <div class="tsd-comment tsd-typography"><p>这个实际上是没必要的</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/a8849a30cd2da92b97b1bb9d16c5e4f08bd63a82/src/community-web/comment/create.ts#L12">src/community-web/comment/create.ts:12</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/f6b7755e9855eb6f764ea7e2789a43b1976c03fe/src/community-web/comment/create.ts#L12">src/community-web/comment/create.ts:12</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="content"><span>content</span><a href="#content" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">content</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/a8849a30cd2da92b97b1bb9d16c5e4f08bd63a82/src/community-web/comment/create.ts#L17">src/community-web/comment/create.ts:17</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/f6b7755e9855eb6f764ea7e2789a43b1976c03fe/src/community-web/comment/create.ts#L17">src/community-web/comment/create.ts:17</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="parentid"><code class="tsd-tag">Optional</code><span>parent<wbr/>Id</span><a href="#parentid" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">parentId</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span></div>
 <div class="tsd-comment tsd-typography"><p>回复楼中楼时传：所在楼层的顶层评论 id（回复顶层评论时可省略，后端自动补）</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/a8849a30cd2da92b97b1bb9d16c5e4f08bd63a82/src/community-web/comment/create.ts#L19">src/community-web/comment/create.ts:19</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/f6b7755e9855eb6f764ea7e2789a43b1976c03fe/src/community-web/comment/create.ts#L19">src/community-web/comment/create.ts:19</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="replytoid"><code class="tsd-tag">Optional</code><span>reply<wbr/>To<wbr/>Id</span><a href="#replytoid" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">replyToId</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">number</span></div>
 <div class="tsd-comment tsd-typography"><p>回复评论时传：实际被回复的评论 id</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/a8849a30cd2da92b97b1bb9d16c5e4f08bd63a82/src/community-web/comment/create.ts#L21">src/community-web/comment/create.ts:21</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/f6b7755e9855eb6f764ea7e2789a43b1976c03fe/src/community-web/comment/create.ts#L21">src/community-web/comment/create.ts:21</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="sectiontype"><span>section<wbr/>Type</span><a href="#sectiontype" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">sectionType</span><span class="tsd-signature-symbol">:</span> <a href="types_comment.SectionType.html" class="tsd-signature-type tsd-kind-type-alias">SectionType</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/a8849a30cd2da92b97b1bb9d16c5e4f08bd63a82/src/community-web/comment/create.ts#L22">src/community-web/comment/create.ts:22</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/f6b7755e9855eb6f764ea7e2789a43b1976c03fe/src/community-web/comment/create.ts#L22">src/community-web/comment/create.ts:22</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="topic"><span>topic</span><a href="#topic" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">topic</span><span class="tsd-signature-symbol">:</span> <a href="types_comment.MinimalTopicInfo.html" class="tsd-signature-type tsd-kind-type-alias">MinimalTopicInfo</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/a8849a30cd2da92b97b1bb9d16c5e4f08bd63a82/src/community-web/comment/create.ts#L23">src/community-web/comment/create.ts:23</a></li></ul></aside></section></section></details></div>
+<li>Defined in <a href="https://github.com/open-ccw/ccw-api-api/blob/f6b7755e9855eb6f764ea7e2789a43b1976c03fe/src/community-web/comment/create.ts#L23">src/community-web/comment/create.ts:23</a></li></ul></aside></section></section></details></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
