@@ -4,6 +4,9 @@
     "rootDir": "./",
     "outDir": "dist",
     "types": ["node"],
+    "lib": ["ESNext", "DOM"],
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -13,5 +16,5 @@
     },
     "baseUrl": "./"
   },
-  "include": ["src"]
+  "include": ["src", "./tsdown.config.ts"]
 }

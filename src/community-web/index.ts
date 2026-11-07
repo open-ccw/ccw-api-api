@@ -8,6 +8,7 @@ import { getUserAssetStorageSize } from "./cloud_asset/user/privacy";
 import { searchCloudAssets } from "./cloud_asset/search";
 import { getCommentReplies } from "./comment/page";
 import { getCommentsByTopic } from "./comment/page_by_topic";
+import { getCommentContext } from "./comment/context";
 import { getConfigDetail } from "./config/detail";
 import { queryMallProducts } from "./ccw-mall/ccw/product/fe/query";
 import { createCreation } from "./creation/create";
@@ -173,6 +174,7 @@ export const communityWeb = {
   getCheckInRecords,
   getCodeProfilingDetail,
   getCommentReplies,
+  getCommentContext,
   getCommentsByTopic,
   getConfigDetail,
   getCreationActivityStatsList,
