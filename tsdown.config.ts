@@ -36,6 +36,7 @@ export default defineConfig({
       platform: "browser",
     },
   },
+  fixedExtension: false,
   outDir: "dist",
   globalName: "ccwApi",
   minify: true,
