@@ -1,4 +1,4 @@
-import { defineConfig } from "tsdown";
+import { type UserConfig, defineConfig } from "tsdown/config";
 
 const entries = {
   index: "src/index.ts",
@@ -17,26 +17,28 @@ export default defineConfig({
       outputOptions: {
         exports: "named",
       },
+      platform: "neutral",
     },
-    esm: {},
+    esm: {
+      platform: "browser",
+    },
     iife: {
       entry: { index: "src/index.ts" },
       deps: {
         alwaysBundle() {
           return true;
         },
-        skipNodeModulesBundle: false,
         dts: {},
       },
       outputOptions: {
         exports: "named",
       },
+      platform: "browser",
     },
   },
   outDir: "dist",
-  platform: "browser",
   globalName: "ccwApi",
   minify: true,
   clean: true,
   treeshake: true,
-});
+}) as UserConfig;
