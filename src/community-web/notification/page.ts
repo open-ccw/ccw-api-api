@@ -1,4 +1,4 @@
-﻿import { request } from "src/request";
+﻿﻿import { request } from "src/request";
 import { ApiResponse } from "src/types/api";
 import { PagesRes, PageArgs } from "src/types/pages";
 import { queryPage, DEFAULT_PAGE_ARGS } from "src/queryPages";
@@ -15,6 +15,7 @@ export type Res = PagesRes<NotificationPage>;
 
 /**
  * 分页获取通知列表
+ * @deprecated 已被 notification/v3 取代，使用 getNotificationV3Page
  * @param {NotificationGroup} notifyGroup 通知分组
  * @param {Partial<PageArgs<"createdAt" | T>>} pageArgs_ 分页参数
  * @returns {Promise<Res>} 分页通知数据

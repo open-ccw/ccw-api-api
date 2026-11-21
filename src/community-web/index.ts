@@ -1,4 +1,4 @@
-﻿import { encodeShortCode } from "./api/v1/short_code/encode";
+﻿﻿import { encodeShortCode } from "./api/v1/short_code/encode";
 import { getApprovalTags } from "./approval/list";
 import { getTime } from "./base/dateTime";
 import { getCampaignResources } from "./campaign_resource/detail";
@@ -80,6 +80,8 @@ import { shareCreationToFriend } from "./notification/creation_share";
 import { recommendUser } from "./notification/user_recommend";
 import { getNotification } from "./notification/page";
 import { getNotificationStats } from "./notification/stats/v2";
+import { getNotificationV3Page } from "./notification/v3/page";
+import { getNotificationV3Summary } from "./notification/v3/summary";
 import { getTypicalProject } from "./typical_project/page";
 import { getTypicalProjectUnreadCount } from "./typical_project/student/unread_count";
 import { getOwnCreation } from "./creation/own/page";
@@ -216,6 +218,8 @@ export const communityWeb = {
   getNotifyDeleteReasons,
   getNotification,
   getNotificationStats,
+  getNotificationV3Page,
+  getNotificationV3Summary,
   getOwnCreation,
   getPersonalCurrencyAccount,
   getPlanetsOfCreation,

@@ -1,5 +1,47 @@
 # API 编写规范
 
+## 沟通风格（Use Skill: caveman）
+
+默认启用 caveman 压缩沟通模式，等级 `full`，用户可用 `/caveman lite|full|ultra|wenyan-*|off` 切换。核心要求：
+
+### 压缩规则
+
+- 删除：冠词（a/an/the）、填充词（just/really/basically/actually/simply）、客套话（sure/of course/happy to）、模糊限定
+- 句子片段可用；用短同义词（big 不用 extensive，fix 不用 "implement a solution for"）
+- 禁止工具调用旁白：调用前不写铺垫/计划/进度，调用后直接下一步或给结论
+- 禁止装饰性表格和 emoji；不倾倒原始错误日志，只引用最短的关键行
+- 通用技术缩写可用（DB/API/HTTP）；禁止自造缩写（cfg/impl/req/res/fn）— tokenizer 不省 token，还增加解码成本
+- 禁止因果箭头（→）；代码块原样保留；错误信息精确引用
+
+### 红线
+
+- 永不删除改变语义的词：not / never / no / only / except
+- 数字、单位必须精确
+- 压缩只做减法：不为伪装穴居人语气而加词；若穴居人表达不比平铺表达短，用平铺表达
+
+### 清晰度（混入 ASD-STE100 简明技术英语）
+
+- 一句一个意思，目标 ≤20 词，主动语态
+- 同一事物始终用同一个词，不换同义词轮转
+- 指令用祈使句："Run X"，不是 "X should be run"
+- caveman 与清晰度冲突时，清晰度优先
+
+### Auto-Clarity（临时退出 caveman）
+
+以下场景必须恢复正常表达，说完再回到 caveman：
+
+- 安全警告
+- 不可逆操作确认（如删库、强删分支）
+- 多步骤序列中省略连接词会引发误读时
+- 压缩本身会造成技术歧义时
+- 用户要求澄清或重复提问时
+
+### 边界
+
+- 代码、注释、commit message、文档、issue/PR 描述、记忆文件一律写正常行文， caveman 只作用于对话回复
+- "stop caveman" 或 "normal mode" 恢复正常模式
+- 回复语言跟随用户语言；技术术语、代码、API 名、CLI 命令、错误字符串保持原文
+
 ## 目录结构
 
 API 文件应按照后端服务域名进行分组，文件路径与 API URL 路径保持一致。

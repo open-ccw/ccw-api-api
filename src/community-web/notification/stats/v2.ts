@@ -12,6 +12,7 @@ export type Res = NotificationStats;
 
 /**
  * 获取通知统计
+ * @deprecated 已被 notification/v3 取代，使用 getNotificationV3Summary
  * @param {boolean} countAll 是否统计全部
  * @returns {Promise<Res>} 通知统计数据
  */
