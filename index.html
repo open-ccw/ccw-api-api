@@ -29,11 +29,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="media/API-INDEX.md">API-INDEX.md</a></td>
+<td><a href="./API-INDEX.md">API-INDEX.md</a></td>
 <td>全部 API 的导出名 / URL / 源码路径速查表（新增接口后由 <code>npm run index</code> 刷新）</td>
 </tr>
 <tr>
-<td><a href="media/api-manifest.json">api-manifest.json</a></td>
+<td><a href="./api-manifest.json">api-manifest.json</a></td>
 <td>结构化 API 清单：参数名 / 类型 / JSDoc / 返回值，由 TSDoc 生成，<code>npm run manifest</code> 刷新</td>
 </tr>
 <tr>
@@ -50,7 +50,7 @@
 </tr>
 </tbody>
 </table>
-<p>查找接口时优先查 <a href="media/API-INDEX.md">API-INDEX.md</a>，需要参数与返回类型时用 <code>npm run api -- 关键词 --compact</code> 查询结构化清单，再按路径打开对应源码，避免遍历整个 <code>src/</code> 目录。</p>
+<p>查找接口时优先查 <a href="./API-INDEX.md">API-INDEX.md</a>，需要参数与返回类型时用 <code>npm run api -- 关键词 --compact</code> 查询结构化清单，再按路径打开对应源码，避免遍历整个 <code>src/</code> 目录。</p>
 <p>AI 工具查询示例：</p>
 <pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">api</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-2">shareCreation</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--compact</span><span class="hl-1">   </span><span class="hl-4"># 按关键词找 API（flag 前需再加一个 --）</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">api</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--service=sso</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-3">--compact</span><span class="hl-1">   </span><span class="hl-4"># 列出某服务全部 API</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">run</span><span class="hl-1"> </span><span class="hl-2">api</span><span class="hl-1"> </span><span class="hl-3">--</span><span class="hl-1"> </span><span class="hl-2">creation_share</span><span class="hl-1">               </span><span class="hl-4"># 完整字段（含参数描述、URL、源码路径）</span>
 </code><button type="button">Copy</button></pre>
