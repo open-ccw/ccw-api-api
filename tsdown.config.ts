@@ -14,6 +14,7 @@ export default defineConfig({
   entry: entries,
   format: {
     cjs: {
+      dts: false,
       outputOptions: {
         exports: "named",
       },

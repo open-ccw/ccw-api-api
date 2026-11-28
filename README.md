@@ -11,6 +11,28 @@ CCW（创作社区）前后端接口 SDK，整合 `sso.ccw.site`、`community-we
 
 ---
 
+## 文档导航
+
+| 文档 | 用途 |
+| --- | --- |
+| [API-INDEX.md](./API-INDEX.md) | 全部 API 的导出名 / URL / 源码路径速查表（新增接口后由 `npm run index` 刷新） |
+| [api-manifest.json](./api-manifest.json) | 结构化 API 清单：参数名 / 类型 / JSDoc / 返回值，由 TSDoc 生成，`npm run manifest` 刷新 |
+| [AGENTS.md](./AGENTS.md) | AI 编码助手入口：文档检索顺序、项目结构、硬性规则 |
+| [AGENT.md](./AGENT.md) | API 编写规范：文件命名、7 段式模板、类型约定、测试写法 |
+| [README.md](./README.md) | 本文档：安装、业务场景用法、类型系统、分页约定 |
+
+查找接口时优先查 [API-INDEX.md](./API-INDEX.md)，需要参数与返回类型时用 `npm run api -- 关键词 --compact` 查询结构化清单，再按路径打开对应源码，避免遍历整个 `src/` 目录。
+
+AI 工具查询示例：
+
+```bash
+npm run api -- shareCreation -- --compact   # 按关键词找 API（flag 前需再加一个 --）
+npm run api -- --service=sso -- --compact   # 列出某服务全部 API
+npm run api -- creation_share               # 完整字段（含参数描述、URL、源码路径）
+```
+
+---
+
 ## 安装
 
 ```bash
