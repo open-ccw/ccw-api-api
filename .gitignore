@@ -6,3 +6,7 @@ docs
 coverage
 .tmp
 .env
+
+# 自动生成的文档产物（由 npm run index / npm run manifest 生成）
+API-INDEX.md
+api-manifest.json

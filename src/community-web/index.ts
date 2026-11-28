@@ -82,6 +82,7 @@ import { getNotification } from "./notification/page";
 import { getNotificationStats } from "./notification/stats/v2";
 import { getNotificationV3Page } from "./notification/v3/page";
 import { getNotificationV3Summary } from "./notification/v3/summary";
+import { markNotificationV3Read } from "./notification/v3/mark_read";
 import { getTypicalProject } from "./typical_project/page";
 import { getTypicalProjectUnreadCount } from "./typical_project/student/unread_count";
 import { getOwnCreation } from "./creation/own/page";
@@ -220,6 +221,7 @@ export const communityWeb = {
   getNotificationStats,
   getNotificationV3Page,
   getNotificationV3Summary,
+  markNotificationV3Read,
   getOwnCreation,
   getPersonalCurrencyAccount,
   getPlanetsOfCreation,

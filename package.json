@@ -1,6 +1,6 @@
 {
   "name": "@ccw-api/api",
-  "version": "2.1.16",
+  "version": "2.1.17",
   "description": "ccw api collections",
   "license": "MIT",
   "author": "Meng Fuzi",
@@ -15,6 +15,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./api-manifest.json": "./api-manifest.json",
     "./community-web": {
       "types": "./dist/communityWeb.d.ts",
       "import": "./dist/communityWeb.js",
@@ -48,16 +49,24 @@
   },
   "files": [
     "dist",
+    "api-manifest.json",
+    "API-INDEX.md",
+    "AGENTS.md",
+    "AGENT.md",
+    "CLAUDE.md",
     "README.md",
     "LICENSE"
   ],
   "unpkg": "./dist/index.iife.js",
   "scripts": {
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build && npm run index && npm run manifest",
     "test": "tsx --import ./src/before.test.ts --test",
     "typecheck": "tsc --noEmit",
     "doc": "typedoc",
     "doc:dev": "typedoc --watch",
+    "index": "node scripts/generate-api-index.mjs",
+    "manifest": "node scripts/generate-api-manifest.mjs",
+    "api": "node scripts/query-api.mjs",
     "build": "tsdown"
   },
   "devDependencies": {
