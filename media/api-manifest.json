@@ -1,0 +1,4257 @@
+{
+  "$schema": "ai-api-manifest/v1",
+  "generatedAt": "2026-11-28T04:24:49.445Z",
+  "source": "TypeDoc reflection JSON (docs/typedoc-reflection.json)",
+  "note": "供 AI 检索的精简 API 清单。完整类型反射见 docs/typedoc-reflection.json；调用示例见 README.md。",
+  "services": {
+    "sso": "src/sso",
+    "communityWeb": "src/community-web",
+    "gandiMain": "src/gandi-main",
+    "bfsWeb": "src/bfs-web",
+    "communityWebCloudDatabase": "src/community-web-cloud-database",
+    "opParentApi": "src/op-parent-api"
+  },
+  "count": 169,
+  "apis": [
+    {
+      "call": "bfsWeb.donateExtension",
+      "service": "bfs-web",
+      "name": "donateExtension",
+      "url": "https://bfs-web.ccw.site/extensions",
+      "source": "src/bfs-web/extensions/{eid}/donate.ts",
+      "line": 5,
+      "description": "向扩展投币",
+      "params": [
+        {
+          "name": "eid",
+          "type": "string",
+          "optional": false,
+          "description": "扩展id"
+        },
+        {
+          "name": "bucks",
+          "type": "number",
+          "optional": false,
+          "description": "捐赠金币数量"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "是否捐赠成功"
+      }
+    },
+    {
+      "call": "bfsWeb.getUserExtensions",
+      "service": "bfs-web",
+      "name": "getUserExtensions",
+      "url": "https://bfs-web.ccw.site/users",
+      "source": "src/bfs-web/users/{oid}/extensions.ts",
+      "line": 6,
+      "description": "获取用户扩展列表分页",
+      "params": [
+        {
+          "name": "userOid",
+          "type": "string",
+          "optional": false,
+          "description": "用户id"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "扩展分页列表"
+      }
+    },
+    {
+      "call": "communityWeb.acceptAward",
+      "service": "community-web",
+      "name": "acceptAward",
+      "url": "https://community-web.ccw.site/task/award",
+      "source": "src/community-web/task/award.ts",
+      "line": 151,
+      "description": "领取任务奖励",
+      "params": [
+        {
+          "name": "taskOid",
+          "type": "string",
+          "optional": false,
+          "description": "任务id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "奖励列表"
+      }
+    },
+    {
+      "call": "communityWeb.bindStudentPhone",
+      "service": "community-web",
+      "name": "bindStudentPhone",
+      "url": "https://community-web.ccw.site/students/bind_phone",
+      "source": "src/community-web/students/bind-phone.ts",
+      "line": 152,
+      "description": "绑定手机号",
+      "params": [
+        {
+          "name": "phone",
+          "type": "string",
+          "optional": false,
+          "description": "手机号码"
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "optional": false,
+          "description": "短信验证码"
+        },
+        {
+          "name": "countryCode",
+          "type": "string",
+          "optional": false,
+          "description": "国家区号，默认 \"86\""
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "绑定成功返回 true；验证码不正确等异常会抛出错误"
+      }
+    },
+    {
+      "call": "communityWeb.changeStudentPassword",
+      "service": "community-web",
+      "name": "changeStudentPassword",
+      "url": "https://community-web.ccw.site/students/password/change",
+      "source": "src/community-web/students/password/change.ts",
+      "line": 153,
+      "description": "通过登录session修改用户密码（需配合短信验证码）",
+      "params": [
+        {
+          "name": "newPassword",
+          "type": "string",
+          "optional": false,
+          "description": "新密码"
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "optional": false,
+          "description": "短信验证码，通过 createSmsCaptchaBySession 获取"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "修改成功返回 true；验证码不正确等异常会抛出错误"
+      }
+    },
+    {
+      "call": "communityWeb.createCloudVariable",
+      "service": "community-web",
+      "name": "createCloudVariable",
+      "url": "https://community-web.ccw.site/study-community/cloud_variable/create",
+      "source": "src/community-web/study-community/cloud_variable/create.ts",
+      "line": 161,
+      "description": "",
+      "params": [
+        {
+          "name": "projectId",
+          "type": "string",
+          "optional": false,
+          "description": "项目id"
+        },
+        {
+          "name": "variables",
+          "type": "Record",
+          "optional": false,
+          "description": "变量数据"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "空对象"
+      }
+    },
+    {
+      "call": "communityWeb.createComment",
+      "service": "community-web",
+      "name": "createComment",
+      "url": "https://community-web.ccw.site/comment/create",
+      "source": "src/community-web/comment/create.ts",
+      "line": 162,
+      "description": "创建评论（回复评论时传 parentId / replyToId）",
+      "params": [
+        {
+          "name": "content",
+          "type": "string",
+          "optional": false,
+          "description": "评论内容"
+        },
+        {
+          "name": "topic",
+          "type": "MinimalTopicInfo",
+          "optional": false,
+          "description": "主题信息"
+        },
+        {
+          "name": "sectionType",
+          "type": "SectionType",
+          "optional": false,
+          "description": "板块类型"
+        },
+        {
+          "name": "replyToId",
+          "type": "number",
+          "optional": true,
+          "description": "被回复的评论 id（回复评论时传）"
+        },
+        {
+          "name": "parentId",
+          "type": "number",
+          "optional": true,
+          "description": "父评论 id（回复评论时传）"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "创建的评论"
+      }
+    },
+    {
+      "call": "communityWeb.createCreation",
+      "service": "community-web",
+      "name": "createCreation",
+      "url": "https://community-web.ccw.site/creation/create",
+      "source": "src/community-web/creation/create.ts",
+      "line": 154,
+      "description": "创建作品（草稿）",
+      "params": [
+        {
+          "name": "title",
+          "type": "string",
+          "optional": false,
+          "description": "作品名称"
+        },
+        {
+          "name": "latestProjectLink",
+          "type": "templateLiteral | templateLiteral",
+          "optional": false,
+          "description": "最新项目文件链接 (.sb3)"
+        },
+        {
+          "name": "latestCoverLink",
+          "type": "templateLiteral | templateLiteral",
+          "optional": false,
+          "description": "最新封面链接"
+        },
+        {
+          "name": "type",
+          "type": "ORIGINAL | REMIXED",
+          "optional": false,
+          "description": "作品类型"
+        },
+        {
+          "name": "screenMode",
+          "type": "LANDSCAPE",
+          "optional": false,
+          "description": "屏幕模式"
+        },
+        {
+          "name": "sourceOpenLevel",
+          "type": "SourceOpenLevel",
+          "optional": false,
+          "description": "源码开放级别"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "创建后的作品草稿信息"
+      }
+    },
+    {
+      "call": "communityWeb.createReportLog",
+      "service": "community-web",
+      "name": "createReportLog",
+      "url": "https://community-web.ccw.site/report_log/create",
+      "source": "src/community-web/report_log/create.ts",
+      "line": 163,
+      "description": "举报内容（评论/作品等）",
+      "params": [
+        {
+          "name": "reason",
+          "type": "string",
+          "optional": false,
+          "description": "上报理由，例如：\"引战\""
+        },
+        {
+          "name": "reportedSubjectOid",
+          "type": "string",
+          "optional": false,
+          "description": "被上报对象的 id（可为数字或字符串形式）"
+        },
+        {
+          "name": "evidence",
+          "type": "string[]",
+          "optional": false,
+          "description": "证据列表（如截图链接）"
+        },
+        {
+          "name": "reportedSubjectType",
+          "type": "string",
+          "optional": false,
+          "description": "被上报对象类型，示例：\"COMMENT\""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "optional": false,
+          "description": "补充描述（可选）"
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "optional": false,
+          "description": "接口版本（可选）"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "是否上报成功"
+      }
+    },
+    {
+      "call": "communityWeb.createShortUrl",
+      "service": "community-web",
+      "name": "createShortUrl",
+      "url": "https://community-web.ccw.site/short_url/create",
+      "source": "src/community-web/short_url/create.ts",
+      "line": 164,
+      "description": "创建短链接(用于分享)",
+      "params": [
+        {
+          "name": "originUrl",
+          "type": "string",
+          "optional": false,
+          "description": "原链接"
+        }
+      ],
+      "returns": {
+        "type": "templateLiteral",
+        "description": "创建的短链接"
+      }
+    },
+    {
+      "call": "communityWeb.createSmartContract",
+      "service": "community-web",
+      "name": "createSmartContract",
+      "url": "https://community-web.ccw.site/smart_contract/create",
+      "source": "src/community-web/smart_contract/create.ts",
+      "line": 155,
+      "description": "创建智能合约",
+      "params": [
+        {
+          "name": "bizId",
+          "type": "string",
+          "optional": false,
+          "description": "业务 ID（如作品 OID）"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "optional": false,
+          "description": "合约标题"
+        },
+        {
+          "name": "type",
+          "type": "SmartContractType",
+          "optional": false,
+          "description": "合约类型"
+        },
+        {
+          "name": "bizType",
+          "type": "CREATION",
+          "optional": false,
+          "description": "业务类型，CREATION"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "创建的智能合约信息"
+      }
+    },
+    {
+      "call": "communityWeb.createSmsCaptchaBySession",
+      "service": "community-web",
+      "name": "createSmsCaptchaBySession",
+      "url": "https://community-web.ccw.site/captcha/v2/create_by_session",
+      "source": "src/community-web/captcha/v2/create-by-session.ts",
+      "line": 165,
+      "description": "通过当前登录session发送短信验证码（无需输入手机号）用于重置密码",
+      "params": [
+        {
+          "name": "scene",
+          "type": "change_password",
+          "optional": false,
+          "description": "使用场景，默认 change_password"
+        },
+        {
+          "name": "countryCode",
+          "type": "string",
+          "optional": false,
+          "description": "国家代码，默认 \"86\""
+        },
+        {
+          "name": "ruleCode",
+          "type": "ccw_sms",
+          "optional": false,
+          "description": "短信规则编码，默认 \"ccw_sms\""
+        },
+        {
+          "name": "type",
+          "type": "SMS",
+          "optional": false,
+          "description": "验证码类型，默认 \"SMS\""
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "发送结果：batchId 为短信批次ID，sendResult=1 表示成功；发送频率超限时会抛出错误"
+      }
+    },
+    {
+      "call": "communityWeb.createSplitRule",
+      "service": "community-web",
+      "name": "createSplitRule",
+      "url": "https://community-web.ccw.site/creation/smart_contract/split_rule/create",
+      "source": "src/community-web/creation/smart_contract/split_rule/create.ts",
+      "line": 166,
+      "description": "创建作品智能合约分成规则",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "memberSplitDetails",
+          "type": "MemberSplitDetail[]",
+          "optional": false,
+          "description": "成员分成详情"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "创建是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.decompressShortUrl",
+      "service": "community-web",
+      "name": "decompressShortUrl",
+      "url": "https://community-web.ccw.site/short_url/decompress",
+      "source": "src/community-web/short_url/decompress.ts",
+      "line": 167,
+      "description": "解压缩短链接",
+      "params": [
+        {
+          "name": "shortUrlCode",
+          "type": "string",
+          "optional": false,
+          "description": "短链接"
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "原始URL"
+      }
+    },
+    {
+      "call": "communityWeb.deleteComment",
+      "service": "community-web",
+      "name": "deleteComment",
+      "url": "https://community-web.ccw.site/study-community/comment/delete",
+      "source": "src/community-web/study-community/comment/delete.ts",
+      "line": 168,
+      "description": "删除评论",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "评论id"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "操作是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.donateTrade",
+      "service": "community-web",
+      "name": "donateTrade",
+      "url": "https://community-web.ccw.site/study-trade/trade/donate",
+      "source": "src/community-web/study-trade/trade/donate.ts",
+      "line": 156,
+      "description": "向作品投币",
+      "params": [
+        {
+          "name": "bucks",
+          "type": "number",
+          "optional": false,
+          "description": "投币数量"
+        },
+        {
+          "name": "objectId",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "objectType",
+          "type": "CREATION",
+          "optional": false,
+          "description": ""
+        }
+      ],
+      "returns": {
+        "type": "null",
+        "description": "无返回值"
+      }
+    },
+    {
+      "call": "communityWeb.encodeShortCode",
+      "service": "community-web",
+      "name": "encodeShortCode",
+      "url": "https://community-web.ccw.site/api/v1/short_code/encode",
+      "source": "src/community-web/api/v1/short_code/encode.ts",
+      "line": 157,
+      "description": "生成作品邀请码",
+      "params": [
+        {
+          "name": "inviterId",
+          "type": "string",
+          "optional": false,
+          "description": "邀请人id"
+        },
+        {
+          "name": "inviterAvatar",
+          "type": "templateLiteral | templateLiteral",
+          "optional": false,
+          "description": "邀请人头像"
+        },
+        {
+          "name": "inviterName",
+          "type": "string",
+          "optional": false,
+          "description": "邀请人用户名"
+        },
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": ""
+      }
+    },
+    {
+      "call": "communityWeb.executeSmartContract",
+      "service": "community-web",
+      "name": "executeSmartContract",
+      "url": "https://community-web.ccw.site/smart_contract/execute",
+      "source": "src/community-web/smart_contract/execute.ts",
+      "line": 158,
+      "description": "执行智能合约（投币/领取奖励）",
+      "params": [
+        {
+          "name": "bizId",
+          "type": "string",
+          "optional": false,
+          "description": "业务 ID（如作品 OID）"
+        },
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "合约 ID"
+        },
+        {
+          "name": "ruleId",
+          "type": "number",
+          "optional": false,
+          "description": "规则 ID"
+        },
+        {
+          "name": "bucks",
+          "type": "number",
+          "optional": false,
+          "description": "金币数量"
+        },
+        {
+          "name": "bizType",
+          "type": "CREATION",
+          "optional": false,
+          "description": "业务类型，CREATION"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "执行结果"
+      }
+    },
+    {
+      "call": "communityWeb.fetchMemberInviteToken",
+      "service": "community-web",
+      "name": "fetchMemberInviteToken",
+      "url": "https://community-web.ccw.site/creation/team_member/invite_token/fetch",
+      "source": "src/community-web/creation/team_member/invite_token/fetch.ts",
+      "line": 159,
+      "description": "获取协作参与者邀请链接",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "authority",
+          "type": "ADMIN | MEMBER",
+          "optional": false,
+          "description": "权限 (ADMIN 或 MEMBER)"
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "邀请链接参数(token)"
+      }
+    },
+    {
+      "call": "communityWeb.fetchObserverInviteToken",
+      "service": "community-web",
+      "name": "fetchObserverInviteToken",
+      "url": "https://community-web.ccw.site/creation/team_member/observer_invite_token/fetch",
+      "source": "src/community-web/creation/team_member/observer_invite_token/fetch.ts",
+      "line": 160,
+      "description": "获取协作观察者邀请链接",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "邀请链接参数(token)"
+      }
+    },
+    {
+      "call": "communityWeb.foldComment",
+      "service": "community-web",
+      "name": "foldComment",
+      "url": "https://community-web.ccw.site/study-community/comment/fold",
+      "source": "src/community-web/study-community/comment/fold.ts",
+      "line": 169,
+      "description": "折叠评论",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "评论id"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "操作是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.followCreator",
+      "service": "community-web",
+      "name": "followCreator",
+      "url": "https://community-web.ccw.site/study-community/following/follow",
+      "source": "src/community-web/study-community/following/follow.ts",
+      "line": 170,
+      "description": "关注创作者",
+      "params": [
+        {
+          "name": "followingOid",
+          "type": "string",
+          "optional": false,
+          "description": "要关注的用户 OID"
+        }
+      ],
+      "returns": {
+        "type": "FOLLOWED",
+        "description": "\"FOLLOWED\" 表示关注成功"
+      }
+    },
+    {
+      "call": "communityWeb.getAllEmojis",
+      "service": "community-web",
+      "name": "getAllEmojis",
+      "url": "https://community-web.ccw.site/emoji/all",
+      "source": "src/community-web/emoji/all.ts",
+      "line": 206,
+      "description": "获取所有表情包",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "表情包列表"
+      }
+    },
+    {
+      "call": "communityWeb.getApprovalTags",
+      "service": "community-web",
+      "name": "getApprovalTags",
+      "url": "https://community-web.ccw.site/approval/list",
+      "source": "src/community-web/approval/list.ts",
+      "line": 172,
+      "description": "获取特定用户的勋章数据",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "用户id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "勋章数据"
+      }
+    },
+    {
+      "call": "communityWeb.getCampaignResources",
+      "service": "community-web",
+      "name": "getCampaignResources",
+      "url": "https://community-web.ccw.site/campaign_resource/detail",
+      "source": "src/community-web/campaign_resource/detail.ts",
+      "line": 173,
+      "description": "不知道这个接口有什么用,请查看https://www.ccw.site/pages/tags自行寻找用法",
+      "params": [
+        {
+          "name": "keyword",
+          "type": "K",
+          "optional": false,
+          "description": "活动关键词"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": ""
+      }
+    },
+    {
+      "call": "communityWeb.getCCWMainStatus",
+      "service": "community-web",
+      "name": "getCCWMainStatus",
+      "url": "https://community-web.ccw.site/ccw-main/status",
+      "source": "src/community-web/ccw-main/status.ts",
+      "line": 174,
+      "description": "ccw-main/status",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "信息"
+      }
+    },
+    {
+      "call": "communityWeb.getCheckInRecords",
+      "service": "community-web",
+      "name": "getCheckInRecords",
+      "url": "https://community-web.ccw.site/check_in_record/detail",
+      "source": "src/community-web/check_in_record/detail.ts",
+      "line": 177,
+      "description": "获取本月签到记录",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": ""
+      }
+    },
+    {
+      "call": "communityWeb.getCloudProjectDetail",
+      "service": "community-web",
+      "name": "getCloudProjectDetail",
+      "url": "https://community-web.ccw.site/study-cloud-database/cloud_project/detail",
+      "source": "src/community-web/study-cloud-database/cloud_project/detail.ts",
+      "line": 190,
+      "description": "获取云项目详情",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品 oid"
+        }
+      ],
+      "returns": {
+        "type": "CloudProjectData",
+        "description": "云项目详情"
+      }
+    },
+    {
+      "call": "communityWeb.getCodeProfilingDetail",
+      "service": "community-web",
+      "name": "getCodeProfilingDetail",
+      "url": "https://community-web.ccw.site/creation_release/code_profiling/detail",
+      "source": "src/community-web/creation_release/code_profiling/detail.ts",
+      "line": 178,
+      "description": "获取作品工程统计详情",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "creationReleaseOid",
+          "type": "string",
+          "optional": false,
+          "description": "发布版本id"
+        }
+      ],
+      "returns": {
+        "type": "CodeProfilingDetail",
+        "description": "代码分析详情"
+      }
+    },
+    {
+      "call": "communityWeb.getCommentContext",
+      "service": "community-web",
+      "name": "getCommentContext",
+      "url": "https://community-web.ccw.site/comment/context",
+      "source": "src/community-web/comment/context.ts",
+      "line": 180,
+      "description": "获取评论上下文（以某条评论为锚点，返回其所在楼层及回复窗口，用于定位跳转）",
+      "params": [
+        {
+          "name": "subjectOid",
+          "type": "string",
+          "optional": false,
+          "description": "主体 oid（作品/文章/用户主页等）"
+        },
+        {
+          "name": "subjectType",
+          "type": "SubjectType",
+          "optional": false,
+          "description": "主体类型"
+        },
+        {
+          "name": "sectionType",
+          "type": "SectionType",
+          "optional": false,
+          "description": "板块类型"
+        },
+        {
+          "name": "commentId",
+          "type": "number",
+          "optional": false,
+          "description": "锚点评论 id"
+        },
+        {
+          "name": "floorWindowSize",
+          "type": "number",
+          "optional": true,
+          "description": "楼层窗口大小"
+        },
+        {
+          "name": "replyWindowSize",
+          "type": "number",
+          "optional": true,
+          "description": "回复窗口大小"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "评论上下文"
+      }
+    },
+    {
+      "call": "communityWeb.getCommentReplies",
+      "service": "community-web",
+      "name": "getCommentReplies",
+      "url": "https://community-web.ccw.site/comment/page",
+      "source": "src/community-web/comment/page.ts",
+      "line": 179,
+      "description": "根据topicId获取评论的回复",
+      "params": [
+        {
+          "name": "topicId",
+          "type": "number",
+          "optional": false,
+          "description": "话题id"
+        },
+        {
+          "name": "parentId",
+          "type": "number",
+          "optional": false,
+          "description": "父评论id"
+        },
+        {
+          "name": "statuses",
+          "type": "PUBLISHED | FOLDED[]",
+          "optional": false,
+          "description": "状态过滤"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "评论分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.getCommentsByTopic",
+      "service": "community-web",
+      "name": "getCommentsByTopic",
+      "url": "https://community-web.ccw.site/comment/page_by_topic",
+      "source": "src/community-web/comment/page_by_topic.ts",
+      "line": 181,
+      "description": "根据主题获取评论列表",
+      "params": [
+        {
+          "name": "subjectOid",
+          "type": "string",
+          "optional": false,
+          "description": "主题oid"
+        },
+        {
+          "name": "subjectType",
+          "type": "SubjectType",
+          "optional": false,
+          "description": "主题类型 (如: \"POST\")"
+        },
+        {
+          "name": "sectionType",
+          "type": "SectionType",
+          "optional": false,
+          "description": "区块类型 (如: \"COMMENT\")"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "评论分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.getConfigDetail",
+      "service": "community-web",
+      "name": "getConfigDetail",
+      "url": "https://community-web.ccw.site/config/detail",
+      "source": "src/community-web/config/detail.ts",
+      "line": 182,
+      "description": "获取配置详情",
+      "params": [
+        {
+          "name": "key",
+          "type": "string",
+          "optional": false,
+          "description": "配置键"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "配置值"
+      }
+    },
+    {
+      "call": "communityWeb.getConnectCommunityCreationLikeStatus",
+      "service": "community-web",
+      "name": "getConnectCommunityCreationLikeStatus",
+      "url": "https://community-web.ccw.site/extensions/creation-like/detail",
+      "source": "src/community-web/extensions/creation-like/detail.ts",
+      "line": 192,
+      "description": "[连接社区扩展] 查询用户对作品的点赞交互状态",
+      "params": [
+        {
+          "name": "playingCreationOid",
+          "type": "string",
+          "optional": false,
+          "description": "当前播放的作品 OID"
+        },
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "目标作品 OID"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "点赞状态及作品信息"
+      }
+    },
+    {
+      "call": "communityWeb.getConnectCommunityFollowingStatus",
+      "service": "community-web",
+      "name": "getConnectCommunityFollowingStatus",
+      "url": "https://community-web.ccw.site/extensions/following/status",
+      "source": "src/community-web/extensions/following/status.ts",
+      "line": 203,
+      "description": "[连接社区扩展] 查询是否关注了指定创作者",
+      "params": [
+        {
+          "name": "playingCreationOid",
+          "type": "string",
+          "optional": false,
+          "description": "当前播放的作品 OID"
+        },
+        {
+          "name": "userOid",
+          "type": "string",
+          "optional": false,
+          "description": "目标用户 OID"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "关注状态及用户信息"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationActivityStatsList",
+      "service": "community-web",
+      "name": "getCreationActivityStatsList",
+      "url": "https://community-web.ccw.site/creation_activity_stats/list",
+      "source": "src/community-web/creation_activity_stats/list.ts",
+      "line": 183,
+      "description": "获取作品创作活跃统计数据列表(绿格子)",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "活动统计数据"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationAttributeDetail",
+      "service": "community-web",
+      "name": "getCreationAttributeDetail",
+      "url": "https://community-web.ccw.site/creation_attribute/detail",
+      "source": "src/community-web/creation_attribute/detail.ts",
+      "line": 184,
+      "description": "获取作品属性详情",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "Res | null",
+        "description": "作品属性"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationDashboardMetrics",
+      "service": "community-web",
+      "name": "getCreationDashboardMetrics",
+      "url": "https://community-web.ccw.site/dashboard/creation/metrics",
+      "source": "src/community-web/dashboard/creation/metrics.ts",
+      "line": 186,
+      "description": "获取作品数据看板指标（按日）",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品 ID"
+        },
+        {
+          "name": "timePeriod",
+          "type": "DashboardTimePeriod",
+          "optional": false,
+          "description": "时间周期"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "每日指标列表"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationDashboardMetricsDistribution",
+      "service": "community-web",
+      "name": "getCreationDashboardMetricsDistribution",
+      "url": "https://community-web.ccw.site/dashboard/creation/metrics/distribution",
+      "source": "src/community-web/dashboard/creation/metrics/distribution.ts",
+      "line": 187,
+      "description": "获取作品数据看板指标分布",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品 ID"
+        },
+        {
+          "name": "timePeriod",
+          "type": "DashboardTimePeriod",
+          "optional": false,
+          "description": "时间周期"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "播放次数与播放时长分布"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationDashboardOverview",
+      "service": "community-web",
+      "name": "getCreationDashboardOverview",
+      "url": "https://community-web.ccw.site/dashboard/creation/overview",
+      "source": "src/community-web/dashboard/creation/overview.ts",
+      "line": 188,
+      "description": "获取作品数据看板概览",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品 ID"
+        },
+        {
+          "name": "timePeriod",
+          "type": "DashboardTimePeriod",
+          "optional": false,
+          "description": "时间周期"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "作品数据概览"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationDetail",
+      "service": "community-web",
+      "name": "getCreationDetail",
+      "url": "https://community-web.ccw.site/creation/detail",
+      "source": "src/community-web/creation/detail.ts",
+      "line": 185,
+      "description": "获取作品详情",
+      "params": [
+        {
+          "name": "oid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "accessKey",
+          "type": "string",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "type": " | EDIT",
+          "optional": false,
+          "description": ""
+        }
+      ],
+      "returns": {
+        "type": "Creation",
+        "description": "作品详情"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationFavoriteDetail",
+      "service": "community-web",
+      "name": "getCreationFavoriteDetail",
+      "url": "https://community-web.ccw.site/creation_favorite/detail",
+      "source": "src/community-web/creation_favorite/detail.ts",
+      "line": 189,
+      "description": "获取作品收藏详情（需要登录）",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "收藏详情（未收藏返回null）"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationIntroduction",
+      "service": "community-web",
+      "name": "getCreationIntroduction",
+      "url": "https://community-web.ccw.site/creation/introduction/detail",
+      "source": "src/community-web/creation/introduction/detail.ts",
+      "line": 191,
+      "description": "获取用户代表作",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "Creation",
+        "description": "作品详情"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationRecommendPositionList",
+      "service": "community-web",
+      "name": "getCreationRecommendPositionList",
+      "url": "https://community-web.ccw.site/creation_recommend_position/list",
+      "source": "src/community-web/creation_recommend_position/list.ts",
+      "line": 193,
+      "description": "获取作品推荐位置列表",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "[]",
+        "description": "推荐位置列表,因为不知道什么bug,固定为[]"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationRelease",
+      "service": "community-web",
+      "name": "getCreationRelease",
+      "url": "https://community-web.ccw.site/creation_release/page",
+      "source": "src/community-web/creation_release/page.ts",
+      "line": 194,
+      "description": "获取作品发布记录分页",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "发布记录分页列表"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationsByStudent",
+      "service": "community-web",
+      "name": "getCreationsByStudent",
+      "url": "https://community-web.ccw.site/creation/page_by_student",
+      "source": "src/community-web/creation/page_by_student.ts",
+      "line": 271,
+      "description": "获取学生的作品列表",
+      "params": [
+        {
+          "name": "studentOids",
+          "type": "string[]",
+          "optional": false,
+          "description": "学生id列表"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "作品分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationScreenshot",
+      "service": "community-web",
+      "name": "getCreationScreenshot",
+      "url": "https://community-web.ccw.site/creation_screenshot/page",
+      "source": "src/community-web/creation_screenshot/page.ts",
+      "line": 195,
+      "description": "获取作品截图分页",
+      "params": [
+        {
+          "name": "subjectOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "分页截图列表"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationStudentDetail",
+      "service": "community-web",
+      "name": "getCreationStudentDetail",
+      "url": "https://community-web.ccw.site/creation/student/detail",
+      "source": "src/community-web/creation/student/detail.ts",
+      "line": 196,
+      "description": "获取学生详情",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "Student",
+        "description": "学生详情"
+      }
+    },
+    {
+      "call": "communityWeb.getCreationTags",
+      "service": "community-web",
+      "name": "getCreationTags",
+      "url": "https://community-web.ccw.site/creation/tag/list",
+      "source": "src/community-web/creation/tag/list.ts",
+      "line": 197,
+      "description": "获取作品标签列表 例如 https://www.ccw.site/pages/tags/anime",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "标签列表"
+      }
+    },
+    {
+      "call": "communityWeb.getCreatorScore",
+      "service": "community-web",
+      "name": "getCreatorScore",
+      "url": "https://community-web.ccw.site/students/creator_score",
+      "source": "src/community-web/students/creator_score.ts",
+      "line": 200,
+      "description": "获取当前学生创作分",
+      "params": [],
+      "returns": {
+        "type": "CreatorScore",
+        "description": "创作分信息"
+      }
+    },
+    {
+      "call": "communityWeb.getDistrictList",
+      "service": "community-web",
+      "name": "getDistrictList",
+      "url": "https://community-web.ccw.site/study-main/districts/list",
+      "source": "src/community-web/study-main/districts/list.ts",
+      "line": 198,
+      "description": "study-main/districts/list\r\n获取中国行政区划树形列表",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "行政区划列表"
+      }
+    },
+    {
+      "call": "communityWeb.getDonatedRecordRanking",
+      "service": "community-web",
+      "name": "getDonatedRecordRanking",
+      "url": "https://community-web.ccw.site/creation_donated_record/ranking_list",
+      "source": "src/community-web/creation_donated_record/ranking_list.ts",
+      "line": 201,
+      "description": "获取作品投币排行",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "投币排行数据"
+      }
+    },
+    {
+      "call": "communityWeb.getEmoji",
+      "service": "community-web",
+      "name": "getEmoji",
+      "url": "https://community-web.ccw.site/emoji/page",
+      "source": "src/community-web/emoji/page.ts",
+      "line": 205,
+      "description": "分页获取表情包",
+      "params": [
+        {
+          "name": "status",
+          "type": "EmojiStatus",
+          "optional": false,
+          "description": "表情包状态"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "分页表情包数据"
+      }
+    },
+    {
+      "call": "communityWeb.getEmojiCategoryList",
+      "service": "community-web",
+      "name": "getEmojiCategoryList",
+      "url": "https://community-web.ccw.site/emoji/category/list",
+      "source": "src/community-web/emoji/category/list.ts",
+      "line": 204,
+      "description": "获取表情包分类列表",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "表情包分类列表"
+      }
+    },
+    {
+      "call": "communityWeb.getExcellentCreations",
+      "service": "community-web",
+      "name": "getExcellentCreations",
+      "url": "https://community-web.ccw.site/creation/excellent/list",
+      "source": "src/community-web/creation/excellent/list.ts",
+      "line": 202,
+      "description": "获取精选作品列表",
+      "params": [
+        {
+          "name": "num",
+          "type": "number",
+          "optional": false,
+          "description": "数量"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "作品列表"
+      }
+    },
+    {
+      "call": "communityWeb.getHashTagDetail",
+      "service": "community-web",
+      "name": "getHashTagDetail",
+      "url": "https://community-web.ccw.site/hash_tag/detail",
+      "source": "src/community-web/hash_tag/detail.ts",
+      "line": 207,
+      "description": "获取星球详情",
+      "params": [
+        {
+          "name": "identifier",
+          "type": "string",
+          "optional": false,
+          "description": "星球标识符（名称）"
+        }
+      ],
+      "returns": {
+        "type": "HashTag",
+        "description": "星球详情"
+      }
+    },
+    {
+      "call": "communityWeb.getHashTagFavoriteDetail",
+      "service": "community-web",
+      "name": "getHashTagFavoriteDetail",
+      "url": "https://community-web.ccw.site/hash_tag_favorite/detail",
+      "source": "src/community-web/hash_tag_favorite/detail.ts",
+      "line": 208,
+      "description": "获取星球收藏详情",
+      "params": [
+        {
+          "name": "hashTagId",
+          "type": "number",
+          "optional": false,
+          "description": "星球ID"
+        }
+      ],
+      "returns": {
+        "type": "HashTagFavorite",
+        "description": "星球收藏详情"
+      }
+    },
+    {
+      "call": "communityWeb.getHealthCheck",
+      "service": "community-web",
+      "name": "getHealthCheck",
+      "url": "https://community-web.ccw.site/health/check",
+      "source": "src/community-web/health/check.ts",
+      "line": 211,
+      "description": "",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": ""
+      }
+    },
+    {
+      "call": "communityWeb.getHistoricalTeamMember",
+      "service": "community-web",
+      "name": "getHistoricalTeamMember",
+      "url": "https://community-web.ccw.site/historical_team_member/page",
+      "source": "src/community-web/historical_team_member/page.ts",
+      "line": 209,
+      "description": "获取历史团队成员分页\n不知道怎么用",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "历史团队成员分页列表"
+      }
+    },
+    {
+      "call": "communityWeb.getLeafletsItemList",
+      "service": "community-web",
+      "name": "getLeafletsItemList",
+      "url": "https://community-web.ccw.site/leaflets/item/list",
+      "source": "src/community-web/leaflets/item/list.ts",
+      "line": 212,
+      "description": "获取消息中心上方广告横幅项目列表",
+      "params": [
+        {
+          "name": "advertisementId",
+          "type": "number",
+          "optional": false,
+          "description": "广告ID"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "广告项目列表"
+      }
+    },
+    {
+      "call": "communityWeb.getLikeDetail",
+      "service": "community-web",
+      "name": "getLikeDetail",
+      "url": "https://community-web.ccw.site/creation/like/detail",
+      "source": "src/community-web/creation/like/detail.ts",
+      "line": 213,
+      "description": "获取用户是否曾给作品点赞及点赞动作",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "UserLikeDetail",
+        "description": "点赞详情"
+      }
+    },
+    {
+      "call": "communityWeb.getLoadingTips",
+      "service": "community-web",
+      "name": "getLoadingTips",
+      "url": "https://community-web.ccw.site/creation/loading/tips",
+      "source": "src/community-web/creation/loading/tips.ts",
+      "line": 214,
+      "description": "获取加载提示语",
+      "params": [],
+      "returns": {
+        "type": "LoadingTip",
+        "description": "加载提示语"
+      }
+    },
+    {
+      "call": "communityWeb.getLockedUserDetail",
+      "service": "community-web",
+      "name": "getLockedUserDetail",
+      "url": "https://community-web.ccw.site/locked_user/detail",
+      "source": "src/community-web/locked_user/detail.ts",
+      "line": 215,
+      "description": "获取被封禁用户详情",
+      "params": [
+        {
+          "name": "accountOid",
+          "type": "string",
+          "optional": false,
+          "description": "用户账户ID"
+        }
+      ],
+      "returns": {
+        "type": "LockedUserDetail",
+        "description": "被封禁用户详情"
+      }
+    },
+    {
+      "call": "communityWeb.getManagedHashTags",
+      "service": "community-web",
+      "name": "getManagedHashTags",
+      "url": "https://community-web.ccw.site/hash_tag/managed/list",
+      "source": "src/community-web/hash_tag/managed/list.ts",
+      "line": 210,
+      "description": "获取用户管理的星球列表",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生oid"
+        },
+        {
+          "name": "excludeHashTagIds",
+          "type": "number[]",
+          "optional": false,
+          "description": "排除的星球id列表"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "管理的星球分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.getMutedUserDetail",
+      "service": "community-web",
+      "name": "getMutedUserDetail",
+      "url": "https://community-web.ccw.site/muted_user/detail",
+      "source": "src/community-web/muted_user/detail.ts",
+      "line": 216,
+      "description": "获取禁言用户详情",
+      "params": [
+        {
+          "name": "studentNumber",
+          "type": "string",
+          "optional": false,
+          "description": "用户number(244373873)"
+        }
+      ],
+      "returns": {
+        "type": "null",
+        "description": "禁言用户详情（null表示未禁言）"
+      }
+    },
+    {
+      "call": "communityWeb.getMyHashTagCreations",
+      "service": "community-web",
+      "name": "getMyHashTagCreations",
+      "url": "https://community-web.ccw.site/hash_tag_creation/mine",
+      "source": "src/community-web/hash_tag_creation/mine.ts",
+      "line": 217,
+      "description": "获取当前用户提交到星球的作品列表",
+      "params": [
+        {
+          "name": "excludeHashTag",
+          "type": "string",
+          "optional": true,
+          "description": "排除的星球标识符（名称）"
+        },
+        {
+          "name": "statuses",
+          "type": "string[]",
+          "optional": true,
+          "description": "作品状态筛选，例如 [\"PUBLISHED\"]"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": true,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "星球作品分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.getMyTasks",
+      "service": "community-web",
+      "name": "getMyTasks",
+      "url": "https://community-web.ccw.site/task/mine",
+      "source": "src/community-web/task/mine.ts",
+      "line": 218,
+      "description": "获取我的任务列表",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "任务列表"
+      }
+    },
+    {
+      "call": "communityWeb.getNotification",
+      "service": "community-web",
+      "name": "getNotification",
+      "url": "https://community-web.ccw.site/notification/page",
+      "source": "src/community-web/notification/page.ts",
+      "line": 220,
+      "description": "分页获取通知列表",
+      "params": [
+        {
+          "name": "notifyGroup",
+          "type": "NotificationGroup",
+          "optional": false,
+          "description": "通知分组"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "分页通知数据"
+      }
+    },
+    {
+      "call": "communityWeb.getNotificationStats",
+      "service": "community-web",
+      "name": "getNotificationStats",
+      "url": "https://community-web.ccw.site/notification/stats/v2",
+      "source": "src/community-web/notification/stats/v2.ts",
+      "line": 221,
+      "description": "获取通知统计",
+      "params": [
+        {
+          "name": "countAll",
+          "type": "boolean",
+          "optional": false,
+          "description": "是否统计全部"
+        }
+      ],
+      "returns": {
+        "type": "NotificationStats",
+        "description": "通知统计数据"
+      }
+    },
+    {
+      "call": "communityWeb.getNotificationV3Page",
+      "service": "community-web",
+      "name": "getNotificationV3Page",
+      "url": "https://community-web.ccw.site/notification/v3/page",
+      "source": "src/community-web/notification/v3/page.ts",
+      "line": 222,
+      "description": "分页获取消息（v3 消息中心，游标翻页）",
+      "params": [
+        {
+          "name": "group",
+          "type": "NotificationV3Group",
+          "optional": false,
+          "description": "消息分组"
+        },
+        {
+          "name": "filter",
+          "type": "NotificationV3Filter",
+          "optional": true,
+          "description": "组内过滤条件"
+        },
+        {
+          "name": "cursor",
+          "type": "string | null",
+          "optional": true,
+          "description": "上一页返回的 nextCursor"
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "optional": true,
+          "description": "每页条数（SYSTEM 分组上限 20，传大会报 \"size must be between 0 and 20\"）"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "消息分页数据"
+      }
+    },
+    {
+      "call": "communityWeb.getNotificationV3Summary",
+      "service": "community-web",
+      "name": "getNotificationV3Summary",
+      "url": "https://community-web.ccw.site/notification/v3/summary",
+      "source": "src/community-web/notification/v3/summary.ts",
+      "line": 223,
+      "description": "获取消息分组摘要（各组未读数与最新一条预览）",
+      "params": [
+        {
+          "name": "includePreview",
+          "type": "boolean",
+          "optional": true,
+          "description": "是否附带各组最新一条消息预览"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "消息分组摘要"
+      }
+    },
+    {
+      "call": "communityWeb.getNotifyDeleteReasons",
+      "service": "community-web",
+      "name": "getNotifyDeleteReasons",
+      "url": "https://community-web.ccw.site/notify_message/show",
+      "source": "src/community-web/notify_message/show.ts",
+      "line": 219,
+      "description": "获取通知删除原因列表",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "消息删除原因列表"
+      }
+    },
+    {
+      "call": "communityWeb.getOwnCreation",
+      "service": "community-web",
+      "name": "getOwnCreation",
+      "url": "https://community-web.ccw.site/creation/own/page",
+      "source": "src/community-web/creation/own/page.ts",
+      "line": 225,
+      "description": "获取自己的作品分页列表",
+      "params": [
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        },
+        {
+          "name": "statuses",
+          "type": "CreationStatus[]",
+          "optional": false,
+          "description": "作品状态过滤"
+        },
+        {
+          "name": "ignoreTypicalProject",
+          "type": "boolean",
+          "optional": false,
+          "description": "是否忽略应用课编程文件项目"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "自己的作品分页列表"
+      }
+    },
+    {
+      "call": "communityWeb.getPersonalCurrencyAccount",
+      "service": "community-web",
+      "name": "getPersonalCurrencyAccount",
+      "url": "https://community-web.ccw.site/currency/account/personal",
+      "source": "src/community-web/currency/account/personal.ts",
+      "line": 226,
+      "description": "获取个人金币信息",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "账户金币余额信息"
+      }
+    },
+    {
+      "call": "communityWeb.getPlanetsOfCreation",
+      "service": "community-web",
+      "name": "getPlanetsOfCreation",
+      "url": "https://community-web.ccw.site/hash_tag_creation/list_relation",
+      "source": "src/community-web/hash_tag_creation/list_relation.ts",
+      "line": 227,
+      "description": "获取作品所在星球列表",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品ID"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "星球列表"
+      }
+    },
+    {
+      "call": "communityWeb.getPostDetail",
+      "service": "community-web",
+      "name": "getPostDetail",
+      "url": "https://community-web.ccw.site/post/detail",
+      "source": "src/community-web/post/detail.ts",
+      "line": 228,
+      "description": "获取帖子详情",
+      "params": [
+        {
+          "name": "slug",
+          "type": "string",
+          "optional": false,
+          "description": "帖子slug"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "帖子详情"
+      }
+    },
+    {
+      "call": "communityWeb.getPotentialCreations",
+      "service": "community-web",
+      "name": "getPotentialCreations",
+      "url": "https://community-web.ccw.site/creation/potential/list",
+      "source": "src/community-web/creation/potential/list.ts",
+      "line": 229,
+      "description": "获取潜力作品列表",
+      "params": [
+        {
+          "name": "num",
+          "type": "number",
+          "optional": false,
+          "description": "数量"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "作品列表"
+      }
+    },
+    {
+      "call": "communityWeb.getRecommendCreations",
+      "service": "community-web",
+      "name": "getRecommendCreations",
+      "url": "https://community-web.ccw.site/creation/recommend",
+      "source": "src/community-web/creation/recommend.ts",
+      "line": 230,
+      "description": "获取推荐作品列表",
+      "params": [
+        {
+          "name": "num",
+          "type": "number",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "作品分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.getRecommendCreators",
+      "service": "community-web",
+      "name": "getRecommendCreators",
+      "url": "https://community-web.ccw.site/recommend_creator/list",
+      "source": "src/community-web/recommend_creator/list.ts",
+      "line": 231,
+      "description": "获取社区推荐创作者列表",
+      "params": [
+        {
+          "name": "excellentCount",
+          "type": "number",
+          "optional": false,
+          "description": "精选创作者数量"
+        },
+        {
+          "name": "potentialCount",
+          "type": "number",
+          "optional": false,
+          "description": "潜力创作者数量"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "推荐创作者列表"
+      }
+    },
+    {
+      "call": "communityWeb.getRecommendHashTags",
+      "service": "community-web",
+      "name": "getRecommendHashTags",
+      "url": "https://community-web.ccw.site/hash_tag/recommend/list",
+      "source": "src/community-web/hash_tag/recommend/list.ts",
+      "line": 232,
+      "description": "获取推荐星球列表",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "推荐星球列表"
+      }
+    },
+    {
+      "call": "communityWeb.getRemixedCreation",
+      "service": "community-web",
+      "name": "getRemixedCreation",
+      "url": "https://community-web.ccw.site/creation/page",
+      "source": "src/community-web/creation/page.ts",
+      "line": 233,
+      "description": "根据原作品id获取改编作品分页列表",
+      "params": [
+        {
+          "name": "originCreationOids",
+          "type": "string[]",
+          "optional": false,
+          "description": "原作品id列表"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "改编作品分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.getReputationScoreLog",
+      "service": "community-web",
+      "name": "getReputationScoreLog",
+      "url": "https://community-web.ccw.site/students/reputation_score_log/page",
+      "source": "src/community-web/students/reputation_score_log/page.ts",
+      "line": 234,
+      "description": "获取学生信誉分增减记录",
+      "params": [
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "信誉分记录分页数据"
+      }
+    },
+    {
+      "call": "communityWeb.getSchoolList",
+      "service": "community-web",
+      "name": "getSchoolList",
+      "url": "https://community-web.ccw.site/study-main/schools/list",
+      "source": "src/community-web/study-main/schools/list.ts",
+      "line": 199,
+      "description": "study-main/schools/list\r\n获取学校列表",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "学校列表"
+      }
+    },
+    {
+      "call": "communityWeb.getSearchHotWords",
+      "service": "community-web",
+      "name": "getSearchHotWords",
+      "url": "https://community-web.ccw.site/search/hot_words",
+      "source": "src/community-web/search/hot_words.ts",
+      "line": 235,
+      "description": "获取搜索热词",
+      "params": [
+        {
+          "name": "length",
+          "type": "number",
+          "optional": false,
+          "description": "热词数量"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "热词列表"
+      }
+    },
+    {
+      "call": "communityWeb.getSmartContractAccount",
+      "service": "community-web",
+      "name": "getSmartContractAccount",
+      "url": "https://community-web.ccw.site/smart_contract/account",
+      "source": "src/community-web/smart_contract/account.ts",
+      "line": 236,
+      "description": "查询智能合约账户余额",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "合约 ID"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "合约账户余额"
+      }
+    },
+    {
+      "call": "communityWeb.getSmartContractDetail",
+      "service": "community-web",
+      "name": "getSmartContractDetail",
+      "url": "https://community-web.ccw.site/smart_contract/detail",
+      "source": "src/community-web/smart_contract/detail.ts",
+      "line": 237,
+      "description": "获取智能合约详情",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "合约 ID"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "合约详情"
+      }
+    },
+    {
+      "call": "communityWeb.getSmartContractEarnings",
+      "service": "community-web",
+      "name": "getSmartContractEarnings",
+      "url": "https://community-web.ccw.site/smart_contract/earnings/page",
+      "source": "src/community-web/smart_contract/earnings/page.ts",
+      "line": 238,
+      "description": "分页查询当前用户智能合约收益",
+      "params": [
+        {
+          "name": "smartContractIds",
+          "type": "number[]",
+          "optional": false,
+          "description": "合约 ID 列表"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "收益分页数据"
+      }
+    },
+    {
+      "call": "communityWeb.getSmartContractList",
+      "service": "community-web",
+      "name": "getSmartContractList",
+      "url": "https://community-web.ccw.site/smart_contract/list",
+      "source": "src/community-web/smart_contract/list.ts",
+      "line": 239,
+      "description": "列出作品中的智能金币合约",
+      "params": [
+        {
+          "name": "bizId",
+          "type": "string",
+          "optional": false,
+          "description": "业务ID（如作品OID）"
+        },
+        {
+          "name": "bizType",
+          "type": "CREATION",
+          "optional": false,
+          "description": "业务类型，CREATION"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "智能合约列表"
+      }
+    },
+    {
+      "call": "communityWeb.getSmartContractTypeList",
+      "service": "community-web",
+      "name": "getSmartContractTypeList",
+      "url": "https://community-web.ccw.site/smart_contract/type/list",
+      "source": "src/community-web/smart_contract/type/list.ts",
+      "line": 240,
+      "description": "获取智能合约类型列表",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "合约类型列表"
+      }
+    },
+    {
+      "call": "communityWeb.getSplitRuleDetail",
+      "service": "community-web",
+      "name": "getSplitRuleDetail",
+      "url": "https://community-web.ccw.site/creation/smart_contract/split_rule/detail",
+      "source": "src/community-web/creation/smart_contract/split_rule/detail.ts",
+      "line": 241,
+      "description": "获取作品协作者智能合约分成规则详情",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "分成规则列表"
+      }
+    },
+    {
+      "call": "communityWeb.getSpreadFeedUnreadCount",
+      "service": "community-web",
+      "name": "getSpreadFeedUnreadCount",
+      "url": "https://community-web.ccw.site/study-community/spread_feed/unread/count",
+      "source": "src/community-web/study-community/spread_feed/unread/count.ts",
+      "line": 242,
+      "description": "获取动态未读消息数",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "number",
+        "description": "未读消息数"
+      }
+    },
+    {
+      "call": "communityWeb.getStoragePostPolicy",
+      "service": "community-web",
+      "name": "getStoragePostPolicy",
+      "url": "https://community-web.ccw.site/storage/post-policy",
+      "source": "src/community-web/storage/post-policy.ts",
+      "line": 243,
+      "description": "获取 COS 直传策略（post-policy）",
+      "params": [
+        {
+          "name": "purpose",
+          "type": "StoragePurpose",
+          "optional": false,
+          "description": "存储用途"
+        },
+        {
+          "name": "fileName",
+          "type": "string",
+          "optional": false,
+          "description": "文件名"
+        },
+        {
+          "name": "contentType",
+          "type": "string",
+          "optional": false,
+          "description": "文件 MIME 类型"
+        },
+        {
+          "name": "fileSize",
+          "type": "number",
+          "optional": false,
+          "description": "文件大小（字节）"
+        },
+        {
+          "name": "contentHash",
+          "type": "string",
+          "optional": false,
+          "description": "文件内容哈希"
+        },
+        {
+          "name": "projectOid",
+          "type": "string",
+          "optional": true,
+          "description": "项目 OID（`PROJECT_ASSET` / `PROJECT_SB3` 必传，其余可选）"
+        }
+      ],
+      "returns": {
+        "type": "CosPostPolicyRes",
+        "description": "COS 直传策略，含预签名 policy、resourceUrl 等"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentBlockRecordDetail",
+      "service": "community-web",
+      "name": "getStudentBlockRecordDetail",
+      "url": "https://community-web.ccw.site/student/block_record/detail",
+      "source": "src/community-web/student/block_record/detail.ts",
+      "line": 244,
+      "description": "获取特定用户黑名单详细信息",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "封禁状态"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentBlockRecordList",
+      "service": "community-web",
+      "name": "getStudentBlockRecordList",
+      "url": "https://community-web.ccw.site/student/block_record/list",
+      "source": "src/community-web/student/block_record/list.ts",
+      "line": 245,
+      "description": "获取学生封禁记录列表",
+      "params": [
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "封禁记录分页数据"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentBlockStatus",
+      "service": "community-web",
+      "name": "getStudentBlockStatus",
+      "url": "https://community-web.ccw.site/student/block_record/status",
+      "source": "src/community-web/student/block_record/status.ts",
+      "line": 246,
+      "description": "获取特定用户黑名单状态",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "BlockStatus",
+        "description": "封禁状态"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentFollowing",
+      "service": "community-web",
+      "name": "getStudentFollowing",
+      "url": "https://community-web.ccw.site/student/following/page",
+      "source": "src/community-web/student/following/page.ts",
+      "line": 247,
+      "description": "获取学生关注列表分页",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "关注列表分页"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentLastActiveAt",
+      "service": "community-web",
+      "name": "getStudentLastActiveAt",
+      "url": "https://community-web.ccw.site/students/last_active_at",
+      "source": "src/community-web/students/last_active_at.ts",
+      "line": 248,
+      "description": "获取学生最后活跃时间",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "最后活跃时间数据"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentProfile",
+      "service": "community-web",
+      "name": "getStudentProfile",
+      "url": "https://community-web.ccw.site/students/profile",
+      "source": "src/community-web/students/profile.ts",
+      "line": 249,
+      "description": "获取学生个人主页资料",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "object",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "StudentProfile",
+        "description": "学生资料"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentSelfDetail",
+      "service": "community-web",
+      "name": "getStudentSelfDetail",
+      "url": "https://community-web.ccw.site/students/self/detail",
+      "source": "src/community-web/students/self/detail.ts",
+      "line": 250,
+      "description": "获取当前登录学生的详细信息",
+      "params": [
+        {
+          "name": "needGrade",
+          "type": "boolean",
+          "optional": false,
+          "description": "是否需要年级信息"
+        },
+        {
+          "name": "needExtraInfo",
+          "type": "boolean",
+          "optional": false,
+          "description": "是否需要扩展信息"
+        },
+        {
+          "name": "fields",
+          "type": "StudentSelfDetailFields[]",
+          "optional": false,
+          "description": "需要返回的字段列表"
+        }
+      ],
+      "returns": {
+        "type": "StudentSelfDetail",
+        "description": "当前学生详情"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentSessions",
+      "service": "community-web",
+      "name": "getStudentSessions",
+      "url": "https://community-web.ccw.site/students/list_sessions",
+      "source": "src/community-web/students/list_sessions.ts",
+      "line": 251,
+      "description": "获取学生登录会话列表",
+      "params": [
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "会话列表分页数据"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentsList",
+      "service": "community-web",
+      "name": "getStudentsList",
+      "url": "https://community-web.ccw.site/students/list",
+      "source": "src/community-web/students/list.ts",
+      "line": 252,
+      "description": "根据学生OID列表获取学生信息列表(这个会返回一堆null,不建议使用)",
+      "params": [
+        {
+          "name": "studentOids",
+          "type": "string[]",
+          "optional": false,
+          "description": "学生OID列表"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "学生信息列表"
+      }
+    },
+    {
+      "call": "communityWeb.getStudentStats",
+      "service": "community-web",
+      "name": "getStudentStats",
+      "url": "https://community-web.ccw.site/students/stats",
+      "source": "src/community-web/students/stats.ts",
+      "line": 253,
+      "description": "获取学生统计数据（关注数、粉丝数）",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "StudentFollowerStats",
+        "description": "统计数据"
+      }
+    },
+    {
+      "call": "communityWeb.getStudyCommunityMemberDetail",
+      "service": "community-web",
+      "name": "getStudyCommunityMemberDetail",
+      "url": "https://community-web.ccw.site/study-community/member/detail",
+      "source": "src/community-web/study-community/member/detail.ts",
+      "line": 254,
+      "description": "获取当前用户学习社区成员详情",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "我的社区成员详情"
+      }
+    },
+    {
+      "call": "communityWeb.getSubjectArea",
+      "service": "community-web",
+      "name": "getSubjectArea",
+      "url": "https://community-web.ccw.site/subject_area/page",
+      "source": "src/community-web/subject_area/page.ts",
+      "line": 255,
+      "description": "分页获取主页推荐列表",
+      "params": [
+        {
+          "name": "scene",
+          "type": "HOMEPAGE",
+          "optional": false,
+          "description": "场景"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "主页推荐分页数据"
+      }
+    },
+    {
+      "call": "communityWeb.getSubjectAreaPageByChannel",
+      "service": "community-web",
+      "name": "getSubjectAreaPageByChannel",
+      "url": "https://community-web.ccw.site/subject_area/page_by_channel",
+      "source": "src/community-web/subject_area/page_by_channel.ts",
+      "line": 256,
+      "description": "按频道分页获取分区列表(用于上方nav bar的\"热门分类\" \"联机\" \"联名挑战赛\")",
+      "params": [
+        {
+          "name": "channel",
+          "type": "SubjectAreaChannel",
+          "optional": false,
+          "description": "频道"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "学科区分页数据"
+      }
+    },
+    {
+      "call": "communityWeb.getTeamMemberList",
+      "service": "community-web",
+      "name": "getTeamMemberList",
+      "url": "https://community-web.ccw.site/creation/team_member/list",
+      "source": "src/community-web/creation/team_member/list.ts",
+      "line": 257,
+      "description": "获取作品协作成员列表",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "authorities",
+          "type": "TeamMemberAuthority[]",
+          "optional": false,
+          "description": "权限过滤"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "作品协作成员列表"
+      }
+    },
+    {
+      "call": "communityWeb.getTeamworkLog",
+      "service": "community-web",
+      "name": "getTeamworkLog",
+      "url": "https://community-web.ccw.site/creation/teamwork_log/page",
+      "source": "src/community-web/creation/teamwork_log/page.ts",
+      "line": 258,
+      "description": "获取团队协作日志分页",
+      "params": [
+        {
+          "name": "creationId",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "operateTargets",
+          "type": "OperateTargets[]",
+          "optional": false,
+          "description": "操作目标过滤"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "协作日志分页列表"
+      }
+    },
+    {
+      "call": "communityWeb.getTime",
+      "service": "community-web",
+      "name": "getTime",
+      "url": "https://community-web.ccw.site/base/dateTime",
+      "source": "src/community-web/base/dateTime.ts",
+      "line": 259,
+      "description": "",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": "当前时间戳,相当于Date.now()"
+      }
+    },
+    {
+      "call": "communityWeb.getTypicalProject",
+      "service": "community-web",
+      "name": "getTypicalProject",
+      "url": "https://community-web.ccw.site/typical_project/page",
+      "source": "src/community-web/typical_project/page.ts",
+      "line": 260,
+      "description": "获取应用课工程文件项目分页列表 (https://www.ccw.site/workspace/application)",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "应用课工程文件项目分页列表"
+      }
+    },
+    {
+      "call": "communityWeb.getTypicalProjectUnreadCount",
+      "service": "community-web",
+      "name": "getTypicalProjectUnreadCount",
+      "url": "https://community-web.ccw.site/typical_project/student/unread_count",
+      "source": "src/community-web/typical_project/student/unread_count.ts",
+      "line": 261,
+      "description": "",
+      "params": [
+        {
+          "name": "studentOid",
+          "type": "string",
+          "optional": false,
+          "description": "学生id"
+        }
+      ],
+      "returns": {
+        "type": "[]",
+        "description": "未读应用课工程文件项目id列表"
+      }
+    },
+    {
+      "call": "communityWeb.getUserAssetStorageSize",
+      "service": "community-web",
+      "name": "getUserAssetStorageSize",
+      "url": "https://community-web.ccw.site/cloud_asset/user/privacy",
+      "source": "src/community-web/cloud_asset/user/privacy.ts",
+      "line": 262,
+      "description": "获取用户云存储空间信息",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "存储空间信息"
+      }
+    },
+    {
+      "call": "communityWeb.getUserCardDetail",
+      "service": "community-web",
+      "name": "getUserCardDetail",
+      "url": "https://community-web.ccw.site/user-card/detail",
+      "source": "src/community-web/user-card/detail.ts",
+      "line": 263,
+      "description": "获取用户卡片详情",
+      "params": [
+        {
+          "name": "oid",
+          "type": "string",
+          "optional": false,
+          "description": "用户id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "用户卡片数据"
+      }
+    },
+    {
+      "call": "communityWeb.getUserDashboardMetrics",
+      "service": "community-web",
+      "name": "getUserDashboardMetrics",
+      "url": "https://community-web.ccw.site/dashboard/user/metrics",
+      "source": "src/community-web/dashboard/user/metrics.ts",
+      "line": 264,
+      "description": "获取用户数据看板指标（按日）",
+      "params": [
+        {
+          "name": "timePeriod",
+          "type": "DashboardTimePeriod",
+          "optional": false,
+          "description": "时间周期"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "每日指标列表"
+      }
+    },
+    {
+      "call": "communityWeb.getUserDashboardMetricsDetail",
+      "service": "community-web",
+      "name": "getUserDashboardMetricsDetail",
+      "url": "https://community-web.ccw.site/dashboard/user/metrics/detail",
+      "source": "src/community-web/dashboard/user/metrics/detail.ts",
+      "line": 265,
+      "description": "获取用户数据看板指标明细（按作品）",
+      "params": [
+        {
+          "name": "type",
+          "type": "DashboardMetricType",
+          "optional": false,
+          "description": "指标类型"
+        },
+        {
+          "name": "timePeriod",
+          "type": "DashboardTimePeriod",
+          "optional": false,
+          "description": "时间周期"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "作品指标明细列表"
+      }
+    },
+    {
+      "call": "communityWeb.getUserDashboardOverview",
+      "service": "community-web",
+      "name": "getUserDashboardOverview",
+      "url": "https://community-web.ccw.site/dashboard/user/overview",
+      "source": "src/community-web/dashboard/user/overview.ts",
+      "line": 266,
+      "description": "获取用户数据看板概览",
+      "params": [
+        {
+          "name": "timePeriod",
+          "type": "DashboardTimePeriod",
+          "optional": false,
+          "description": "时间周期"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "用户数据概览"
+      }
+    },
+    {
+      "call": "communityWeb.getUserLabelList",
+      "service": "community-web",
+      "name": "getUserLabelList",
+      "url": "https://community-web.ccw.site/user_label/list",
+      "source": "src/community-web/user_label/list.ts",
+      "line": 267,
+      "description": "获取用户标签列表",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "用户标签数据"
+      }
+    },
+    {
+      "call": "communityWeb.getUserProducts",
+      "service": "community-web",
+      "name": "getUserProducts",
+      "url": "https://community-web.ccw.site/user_package/user_product",
+      "source": "src/community-web/user_package/user_product.ts",
+      "line": 268,
+      "description": "分页获取用户商品（如头像框）",
+      "params": [
+        {
+          "name": "productCategory",
+          "type": "ProductCategory",
+          "optional": false,
+          "description": "商品分类，默认5为头像框"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "分页用户商品数据"
+      }
+    },
+    {
+      "call": "communityWeb.insertCheckInRecord",
+      "service": "community-web",
+      "name": "insertCheckInRecord",
+      "url": "https://community-web.ccw.site/check_in_record/insert",
+      "source": "src/community-web/check_in_record/insert.ts",
+      "line": 272,
+      "description": "插入签到记录（相当于签到）",
+      "params": [],
+      "returns": {
+        "type": "boolean",
+        "description": "是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.investSmartContract",
+      "service": "community-web",
+      "name": "investSmartContract",
+      "url": "https://community-web.ccw.site/smart_contract/invest",
+      "source": "src/community-web/smart_contract/invest.ts",
+      "line": 273,
+      "description": "向智能合约注资",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "合约 ID"
+        },
+        {
+          "name": "bucks",
+          "type": "number",
+          "optional": false,
+          "description": "投币数量"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "注资是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.likeComment",
+      "service": "community-web",
+      "name": "likeComment",
+      "url": "https://community-web.ccw.site/comment/like_record/create",
+      "source": "src/community-web/comment/like_record/create.ts",
+      "line": 274,
+      "description": "点赞评论",
+      "params": [
+        {
+          "name": "commentId",
+          "type": "number",
+          "optional": false,
+          "description": "评论id"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "操作是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.markNotificationV3Read",
+      "service": "community-web",
+      "name": "markNotificationV3Read",
+      "url": "https://community-web.ccw.site/notification/v3/mark_read",
+      "source": "src/community-web/notification/v3/mark_read.ts",
+      "line": 224,
+      "description": "标记 v3 消息为已读",
+      "params": [
+        {
+          "name": "group",
+          "type": "NotificationV3MarkReadGroup",
+          "optional": false,
+          "description": "消息分组，\"ALL\" 表示全部"
+        },
+        {
+          "name": "readToken",
+          "type": "string",
+          "optional": false,
+          "description": "已读令牌"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "标记结果"
+      }
+    },
+    {
+      "call": "communityWeb.produceTeamMemberTicket",
+      "service": "community-web",
+      "name": "produceTeamMemberTicket",
+      "url": "https://community-web.ccw.site/creation/team_member/produce_ticket",
+      "source": "src/community-web/creation/team_member/produce_ticket.ts",
+      "line": 276,
+      "description": "获取协作签名(协作token)",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "签名(token)"
+      }
+    },
+    {
+      "call": "communityWeb.queryMallProducts",
+      "service": "community-web",
+      "name": "queryMallProducts",
+      "url": "https://community-web.ccw.site/ccw-mall/ccw/product/fe/query",
+      "source": "src/community-web/ccw-mall/ccw/product/fe/query.ts",
+      "line": 269,
+      "description": "分页查询CCW小商店商品列表",
+      "params": [
+        {
+          "name": "productCategory",
+          "type": "ProductCategory",
+          "optional": true,
+          "description": "商品分类（可选）：5=头像框，7=周边商品，10=表情 等"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数（默认 page=1, perPage=30, sortType=\"DESC\"）"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "商品分页结果 PagesRes<Product>"
+      }
+    },
+    {
+      "call": "communityWeb.recommendUser",
+      "service": "community-web",
+      "name": "recommendUser",
+      "url": "https://community-web.ccw.site/notification/user_recommend",
+      "source": "src/community-web/notification/user_recommend.ts",
+      "line": 270,
+      "description": "推荐用户给好友",
+      "params": [
+        {
+          "name": "receiverOid",
+          "type": "string",
+          "optional": false,
+          "description": "接收者 OID"
+        },
+        {
+          "name": "recommendedStudentOid",
+          "type": "string",
+          "optional": false,
+          "description": "被推荐学生 OID"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true 表示推荐成功"
+      }
+    },
+    {
+      "call": "communityWeb.replyComment",
+      "service": "community-web",
+      "name": "replyComment",
+      "url": "https://community-web.ccw.site/comment/reply",
+      "source": "src/community-web/comment/reply.ts",
+      "line": 277,
+      "description": "回复评论",
+      "params": [
+        {
+          "name": "content",
+          "type": "string",
+          "optional": false,
+          "description": "回复内容"
+        },
+        {
+          "name": "replyToId",
+          "type": "number",
+          "optional": false,
+          "description": "评论id"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "回复的评论"
+      }
+    },
+    {
+      "call": "communityWeb.resetCommentWeight",
+      "service": "community-web",
+      "name": "resetCommentWeight",
+      "url": "https://community-web.ccw.site/study-community/comment/reset_weight",
+      "source": "src/community-web/study-community/comment/reset_weight.ts",
+      "line": 278,
+      "description": "取消置顶",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "评论id"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "操作是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.resolveExternalIp",
+      "service": "community-web",
+      "name": "resolveExternalIp",
+      "url": "https://community-web.ccw.site/study-main/external/ip/resolve",
+      "source": "src/community-web/study-main/external/ip/resolve.ts",
+      "line": 279,
+      "description": "study-main/external/ip/resolve\r\n解析当前IP的地理位置信息",
+      "params": [],
+      "returns": {
+        "type": "Res",
+        "description": "IP地理信息"
+      }
+    },
+    {
+      "call": "communityWeb.saveCloudProject",
+      "service": "community-web",
+      "name": "saveCloudProject",
+      "url": "https://community-web.ccw.site/study-cloud-database/cloud_project/save",
+      "source": "src/community-web/study-cloud-database/cloud_project/save.ts",
+      "line": 286,
+      "description": "保存云项目",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品 oid"
+        },
+        {
+          "name": "lastModified",
+          "type": "number",
+          "optional": false,
+          "description": "最后更新时间（毫秒）"
+        },
+        {
+          "name": "targets",
+          "type": "Record",
+          "optional": false,
+          "description": "项目目标对象"
+        },
+        {
+          "name": "meta",
+          "type": "CloudProjectMeta",
+          "optional": false,
+          "description": "项目元信息（可选）"
+        },
+        {
+          "name": "monitors",
+          "type": "Record",
+          "optional": false,
+          "description": "监控对象（可选）"
+        },
+        {
+          "name": "extensions",
+          "type": "string[]",
+          "optional": false,
+          "description": "扩展列表（可选）"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "是否保存成功"
+      }
+    },
+    {
+      "call": "communityWeb.searchAll",
+      "service": "community-web",
+      "name": "searchAll",
+      "url": "https://community-web.ccw.site/search/all",
+      "source": "src/community-web/search/all.ts",
+      "line": 285,
+      "description": "全局搜索",
+      "params": [
+        {
+          "name": "keyword",
+          "type": "string",
+          "optional": false,
+          "description": "搜索关键词"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "搜索结果"
+      }
+    },
+    {
+      "call": "communityWeb.searchCloudAssets",
+      "service": "community-web",
+      "name": "searchCloudAssets",
+      "url": "https://community-web.ccw.site/cloud_asset/search",
+      "source": "src/community-web/cloud_asset/search.ts",
+      "line": 280,
+      "description": "获取用户云背包特定目录内素材",
+      "params": [
+        {
+          "name": "creatorOid",
+          "type": "string",
+          "optional": false,
+          "description": "用户id"
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "optional": false,
+          "description": "目录(例如'/23azZqHBnqj/2BzzTdi5I5C/')"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "目录内的素材分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.searchCreationsByTag",
+      "service": "community-web",
+      "name": "searchCreationsByTag",
+      "url": "https://community-web.ccw.site/creation/search/page",
+      "source": "src/community-web/creation/search/page.ts",
+      "line": 281,
+      "description": "搜索作品",
+      "params": [
+        {
+          "name": "req",
+          "type": "Req",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "作品分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.searchHashTags",
+      "service": "community-web",
+      "name": "searchHashTags",
+      "url": "https://community-web.ccw.site/hash_tag/search/v2",
+      "source": "src/community-web/hash_tag/search/v2.ts",
+      "line": 282,
+      "description": "搜索星球（话题）",
+      "params": [
+        {
+          "name": "keyword",
+          "type": "string",
+          "optional": false,
+          "description": "搜索关键词"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "星球分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.searchPosts",
+      "service": "community-web",
+      "name": "searchPosts",
+      "url": "https://community-web.ccw.site/post/search",
+      "source": "src/community-web/post/search.ts",
+      "line": 283,
+      "description": "搜索帖子",
+      "params": [
+        {
+          "name": "keyword",
+          "type": "string",
+          "optional": false,
+          "description": "搜索关键词"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "帖子分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.searchStudents",
+      "service": "community-web",
+      "name": "searchStudents",
+      "url": "https://community-web.ccw.site/es_student/search",
+      "source": "src/community-web/es_student/search.ts",
+      "line": 284,
+      "description": "搜索学生",
+      "params": [
+        {
+          "name": "keyword",
+          "type": "string",
+          "optional": false,
+          "description": "搜索关键词"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "学生分页结果"
+      }
+    },
+    {
+      "call": "communityWeb.sendEvent",
+      "service": "community-web",
+      "name": "sendEvent",
+      "url": "https://community-web.ccw.site/event",
+      "source": "src/community-web/event.ts",
+      "line": 287,
+      "description": "发送事件",
+      "params": [
+        {
+          "name": "actionId",
+          "type": "string",
+          "optional": false,
+          "description": "事件ID"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.setUserProductStatus",
+      "service": "community-web",
+      "name": "setUserProductStatus",
+      "url": "https://community-web.ccw.site/user_package/status",
+      "source": "src/community-web/user_package/status.ts",
+      "line": 288,
+      "description": "设置用户商品状态（如佩戴/卸下头像框）",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "用户商品ID"
+        },
+        {
+          "name": "status",
+          "type": "boolean",
+          "optional": false,
+          "description": "商品状态，true为佩戴，false为卸下"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "设置结果"
+      }
+    },
+    {
+      "call": "communityWeb.shareCreation",
+      "service": "community-web",
+      "name": "shareCreation",
+      "url": "https://community-web.ccw.site/feed/creation_share",
+      "source": "src/community-web/feed/creation_share.ts",
+      "line": 289,
+      "description": "分享作品到动态",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品 OID"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true 表示分享成功"
+      }
+    },
+    {
+      "call": "communityWeb.shareCreationToFriend",
+      "service": "community-web",
+      "name": "shareCreationToFriend",
+      "url": "https://community-web.ccw.site/notification/creation_share",
+      "source": "src/community-web/notification/creation_share.ts",
+      "line": 290,
+      "description": "分享作品给好友",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品 OID"
+        },
+        {
+          "name": "receiverOid",
+          "type": "string",
+          "optional": false,
+          "description": "接收者 OID"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true 表示分享成功"
+      }
+    },
+    {
+      "call": "communityWeb.shareFriendInvite",
+      "service": "community-web",
+      "name": "shareFriendInvite",
+      "url": "https://community-web.ccw.site/feed/friend_invite",
+      "source": "src/community-web/feed/friend_invite.ts",
+      "line": 291,
+      "description": "在动态分享邀请消息",
+      "params": [
+        {
+          "name": "message",
+          "type": "string",
+          "optional": false,
+          "description": "分享消息内容"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "true 表示分享成功"
+      }
+    },
+    {
+      "call": "communityWeb.submitCreation",
+      "service": "community-web",
+      "name": "submitCreation",
+      "url": "https://community-web.ccw.site/creation/submit",
+      "source": "src/community-web/creation/submit.ts",
+      "line": 292,
+      "description": "提交作品",
+      "params": [
+        {
+          "name": "req",
+          "type": "Req",
+          "optional": false,
+          "description": "提交参数 看着写吧,我也不知道该怎么整了()"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "提交是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.topComment",
+      "service": "community-web",
+      "name": "topComment",
+      "url": "https://community-web.ccw.site/study-community/comment/top",
+      "source": "src/community-web/study-community/comment/top.ts",
+      "line": 293,
+      "description": "置顶评论",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "评论id"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "操作是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.translate",
+      "service": "community-web",
+      "name": "translate",
+      "url": "https://community-web.ccw.site/ccw-main/external/mt/translate",
+      "source": "src/community-web/ccw-main/external/translate.ts",
+      "line": 175,
+      "description": "翻译文本",
+      "params": [
+        {
+          "name": "req",
+          "type": "Req",
+          "optional": false,
+          "description": "请求体"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "Res"
+      }
+    },
+    {
+      "call": "communityWeb.tts",
+      "service": "community-web",
+      "name": "tts",
+      "url": "",
+      "source": "src/community-web/index.ts",
+      "line": 176,
+      "description": "",
+      "params": [
+        {
+          "name": "req",
+          "type": "Req",
+          "optional": false,
+          "description": "tts配置"
+        }
+      ],
+      "returns": {
+        "type": "Response",
+        "description": "需要用户自行处理的音频mp3"
+      }
+    },
+    {
+      "call": "communityWeb.unfollowCreator",
+      "service": "community-web",
+      "name": "unfollowCreator",
+      "url": "https://community-web.ccw.site/study-community/following/unfollow",
+      "source": "src/community-web/study-community/following/unfollow.ts",
+      "line": 171,
+      "description": "取消关注创作者",
+      "params": [
+        {
+          "name": "followingOid",
+          "type": "string",
+          "optional": false,
+          "description": "要取消关注的用户 OID"
+        }
+      ],
+      "returns": {
+        "type": "UNFOLLOWED",
+        "description": "\"UNFOLLOWED\" 表示取消关注成功"
+      }
+    },
+    {
+      "call": "communityWeb.unlikeComment",
+      "service": "community-web",
+      "name": "unlikeComment",
+      "url": "https://community-web.ccw.site/comment/like_record/delete",
+      "source": "src/community-web/comment/like_record/delete.ts",
+      "line": 275,
+      "description": "取消点赞评论",
+      "params": [
+        {
+          "name": "commentId",
+          "type": "number",
+          "optional": false,
+          "description": "评论id"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "操作是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.updateApproval",
+      "service": "community-web",
+      "name": "updateApproval",
+      "url": "https://community-web.ccw.site/approval/update",
+      "source": "src/community-web/approval/update.ts",
+      "line": 297,
+      "description": "更新勋章数据",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "勋章id"
+        },
+        {
+          "name": "adorned",
+          "type": "boolean",
+          "optional": false,
+          "description": "是否佩戴"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "勋章数据"
+      }
+    },
+    {
+      "call": "communityWeb.updateCreation",
+      "service": "community-web",
+      "name": "updateCreation",
+      "url": "https://community-web.ccw.site/creation/update",
+      "source": "src/community-web/creation/update.ts",
+      "line": 294,
+      "description": "更新作品信息",
+      "params": [
+        {
+          "name": "oid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "latestProjectLink_",
+          "type": "templateLiteral | templateLiteral",
+          "optional": false,
+          "description": "最新项目链接"
+        },
+        {
+          "name": "screenMode",
+          "type": "LANDSCAPE",
+          "optional": false,
+          "description": "屏幕模式"
+        },
+        {
+          "name": "latestCoverLink",
+          "type": "templateLiteral | templateLiteral",
+          "optional": false,
+          "description": "最新封面链接"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "更新是否成功"
+      }
+    },
+    {
+      "call": "communityWeb.updateGreatCreation",
+      "service": "community-web",
+      "name": "updateGreatCreation",
+      "url": "https://community-web.ccw.site/great_creation/update",
+      "source": "src/community-web/great_creation/update.ts",
+      "line": 295,
+      "description": "更换代表作",
+      "params": [
+        {
+          "name": "creationOid",
+          "type": "string",
+          "optional": false,
+          "description": "作品OID 若为\"\"则是取消展示"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "更换结果"
+      }
+    },
+    {
+      "call": "communityWeb.updateStudent",
+      "service": "community-web",
+      "name": "updateStudent",
+      "url": "https://community-web.ccw.site/students/update",
+      "source": "src/community-web/students/update.ts",
+      "line": 296,
+      "description": "",
+      "params": [
+        {
+          "name": "profile",
+          "type": "StudentUpdateReq",
+          "optional": false,
+          "description": ""
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": ""
+      }
+    },
+    {
+      "call": "communityWeb.viewCreationStats",
+      "service": "community-web",
+      "name": "viewCreationStats",
+      "url": "https://community-web.ccw.site/creation_stats/view",
+      "source": "src/community-web/creation_stats/view.ts",
+      "line": 298,
+      "description": "查看作品统计（增加浏览量）",
+      "params": [
+        {
+          "name": "oid",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "inviteCode",
+          "type": "string",
+          "optional": false,
+          "description": "邀请码"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "是否成功"
+      }
+    },
+    {
+      "call": "communityWebCloudDatabase.getCloudVariableDetailV2",
+      "service": "community-web-cloud-database",
+      "name": "getCloudVariableDetailV2",
+      "url": "https://community-web-cloud-database.ccw.site/cloud_variable/detail/v2",
+      "source": "src/community-web-cloud-database/cloud_variable/detail/v2.ts",
+      "line": 10,
+      "description": "查询云变量详情 V2",
+      "params": [
+        {
+          "name": "accessKey",
+          "type": "string",
+          "optional": false,
+          "description": "访问密钥（如作品 OID）"
+        },
+        {
+          "name": "primaryKey",
+          "type": "string",
+          "optional": false,
+          "description": "主键（如 `${projectId}-u`）"
+        },
+        {
+          "name": "secondaryKey",
+          "type": "string",
+          "optional": false,
+          "description": "次级键"
+        },
+        {
+          "name": "filterKeys",
+          "type": "string[]",
+          "optional": false,
+          "description": "过滤的变量名列表"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "云变量详情"
+      }
+    },
+    {
+      "call": "communityWebCloudDatabase.saveProjectCloudVariable",
+      "service": "community-web-cloud-database",
+      "name": "saveProjectCloudVariable",
+      "url": "https://community-web-cloud-database.ccw.site/cloud_variable/save",
+      "source": "src/community-web-cloud-database/cloud_variable/save.ts",
+      "line": 8,
+      "description": "保存作品云变量到云数据库",
+      "params": [
+        {
+          "name": "projectId",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "secondaryKey",
+          "type": "string",
+          "optional": false,
+          "description": "次级键 - 变量名或标识"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "要保存数据"
+        }
+      ],
+      "returns": {
+        "type": "object",
+        "description": "保存后的值对象"
+      }
+    },
+    {
+      "call": "communityWebCloudDatabase.saveUserCloudVariable",
+      "service": "community-web-cloud-database",
+      "name": "saveUserCloudVariable",
+      "url": "https://community-web-cloud-database.ccw.site/cloud_variable/save",
+      "source": "src/community-web-cloud-database/cloud_variable/save.ts",
+      "line": 9,
+      "description": "保存数据到用户云数据库",
+      "params": [
+        {
+          "name": "projectId",
+          "type": "string",
+          "optional": false,
+          "description": "作品id"
+        },
+        {
+          "name": "studentNum",
+          "type": "number",
+          "optional": false,
+          "description": "次级键 - 用户id"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "optional": false,
+          "description": "要保存的键值对"
+        }
+      ],
+      "returns": {
+        "type": "T",
+        "description": "保存后的值对象"
+      }
+    },
+    {
+      "call": "gandiMain.chatWithGameAssistant",
+      "service": "gandi-main",
+      "name": "chatWithGameAssistant",
+      "url": "",
+      "source": "src/gandi-main/index.ts",
+      "line": 16,
+      "description": "与ai hub GameAssistant交谈",
+      "params": [
+        {
+          "name": "ts",
+          "type": "string | number",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "optional": false,
+          "description": ""
+        },
+        {
+          "name": "req",
+          "type": "Req",
+          "optional": false,
+          "description": ""
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": ""
+      }
+    },
+    {
+      "call": "gandiMain.getBulletinDetail",
+      "service": "gandi-main",
+      "name": "getBulletinDetail",
+      "url": "https://gandi-main.ccw.site/bulletins",
+      "source": "src/gandi-main/bulletins/detail.ts",
+      "line": 13,
+      "description": "获取公告详情",
+      "params": [
+        {
+          "name": "id",
+          "type": "number",
+          "optional": false,
+          "description": "公告id"
+        }
+      ],
+      "returns": {
+        "type": "BulletinDetail",
+        "description": "公告详情"
+      }
+    },
+    {
+      "call": "gandiMain.getBulletinsPage",
+      "service": "gandi-main",
+      "name": "getBulletinsPage",
+      "url": "https://gandi-main.ccw.site/bulletins",
+      "source": "src/gandi-main/bulletins/page.ts",
+      "line": 12,
+      "description": "获取公告分页列表",
+      "params": [
+        {
+          "name": "status",
+          "type": "PUBLISHED | S",
+          "optional": false,
+          "description": "公告状态过滤"
+        },
+        {
+          "name": "pageArgs_",
+          "type": "Partial",
+          "optional": false,
+          "description": "分页参数"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "公告分页列表"
+      }
+    },
+    {
+      "call": "gandiMain.getCurrentTimestamp",
+      "service": "gandi-main",
+      "name": "getCurrentTimestamp",
+      "url": "https://gandi-main.ccw.site/timestamp/current",
+      "source": "src/gandi-main/timestamp/current.ts",
+      "line": 11,
+      "description": "获取服务端当前时间戳",
+      "params": [],
+      "returns": {
+        "type": "number",
+        "description": "当前时间戳（毫秒）"
+      }
+    },
+    {
+      "call": "gandiMain.getLeaderboardRecords",
+      "service": "gandi-main",
+      "name": "getLeaderboardRecords",
+      "url": "https://gandi-main.ccw.site/creation/leaderboards",
+      "source": "src/gandi-main/creation/leaderboards/{oid}/records.ts",
+      "line": 15,
+      "description": "获取作品排行榜记录列表",
+      "params": [
+        {
+          "name": "leaderboardOid",
+          "type": "string",
+          "optional": false,
+          "description": "排行榜id"
+        }
+      ],
+      "returns": {
+        "type": "LeaderboardRecordsRes",
+        "description": "排行榜记录列表"
+      }
+    },
+    {
+      "call": "gandiMain.submitLeaderboardRecord",
+      "service": "gandi-main",
+      "name": "submitLeaderboardRecord",
+      "url": "https://gandi-main.ccw.site/creation/leaderboards",
+      "source": "src/gandi-main/creation/leaderboards/{oid}/records.ts",
+      "line": 14,
+      "description": "向作品排行榜提交一条分数记录",
+      "params": [
+        {
+          "name": "leaderboardOid",
+          "type": "string",
+          "optional": false,
+          "description": "排行榜id"
+        },
+        {
+          "name": "score",
+          "type": "number",
+          "optional": false,
+          "description": "分数"
+        },
+        {
+          "name": "userOid",
+          "type": "string",
+          "optional": false,
+          "description": "用户id"
+        },
+        {
+          "name": "ext",
+          "type": "string",
+          "optional": false,
+          "description": "扩展信息（可选）"
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "是否提交成功"
+      }
+    },
+    {
+      "call": "opParentApi.checkCaptcha",
+      "service": "op-parent-api",
+      "name": "checkCaptcha",
+      "url": "https://op-parent-api.xiguacity.cn/captcha/check",
+      "source": "src/op-parent-api/captcha/check.ts",
+      "line": 6,
+      "description": "校验图形验证码（拼图滑块坐标）",
+      "params": [
+        {
+          "name": "token",
+          "type": "string",
+          "optional": false,
+          "description": "createCaptcha 返回的 token"
+        },
+        {
+          "name": "x",
+          "type": "number",
+          "optional": false,
+          "description": "拼图滑块目标位置的 x 坐标"
+        },
+        {
+          "name": "y",
+          "type": "number",
+          "optional": false,
+          "description": "拼图滑块目标位置的 y 坐标"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "校验结果"
+      }
+    },
+    {
+      "call": "opParentApi.createCaptcha",
+      "service": "op-parent-api",
+      "name": "createCaptcha",
+      "url": "https://op-parent-api.xiguacity.cn/captcha/create",
+      "source": "src/op-parent-api/captcha/create.ts",
+      "line": 5,
+      "description": "创建图形验证码（拼图滑块）",
+      "params": [
+        {
+          "name": "type",
+          "type": "BLOCK_PUZZLE",
+          "optional": false,
+          "description": "验证码类型,默认 BLOCK_PUZZLE（滑块拼图）"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "验证码信息:bgImg为背景图base64 data url,jigsawImg为拼图块base64 data url,token用于后续校验"
+      }
+    },
+    {
+      "call": "sso.createSmsCaptcha",
+      "service": "sso",
+      "name": "createSmsCaptcha",
+      "url": "https://sso.ccw.site/web/auth/assistant/captcha/v2/create",
+      "source": "src/sso/web/auth/assistant/captcha/v2/create.ts",
+      "line": 14,
+      "description": "发送短信验证码",
+      "params": [
+        {
+          "name": "recipient",
+          "type": "string",
+          "optional": false,
+          "description": "接收手机号，如 \"10011451919\""
+        },
+        {
+          "name": "scene",
+          "type": "loginbyPhone",
+          "optional": false,
+          "description": "场景，默认 loginbyPhone"
+        },
+        {
+          "name": "countryCode",
+          "type": "string",
+          "optional": false,
+          "description": "国家代码，默认 \"86\""
+        },
+        {
+          "name": "ruleCode",
+          "type": "ccw_sms",
+          "optional": false,
+          "description": "短信规则编码，默认 \"ccw_sms\""
+        },
+        {
+          "name": "captcha",
+          "type": "CaptchaPayload",
+          "optional": true,
+          "description": "图形验证码校验结果（滑块拼图的坐标与token），可选（部分场景未强制要求时可省略，但失败时sendResult!=1）"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "发送结果：batchId 为短信批次ID，sendResult=1 表示成功"
+      }
+    },
+    {
+      "call": "sso.getOauthToken",
+      "service": "sso",
+      "name": "getOauthToken",
+      "url": "",
+      "source": "src/sso/index.ts",
+      "line": 17,
+      "description": "获取oauth token, 此接口存在盗号漏洞, 已被修改",
+      "params": [
+        {
+          "name": "code",
+          "type": "string",
+          "optional": false,
+          "description": ""
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": ""
+      }
+    },
+    {
+      "call": "sso.loginByPassword",
+      "service": "sso",
+      "name": "loginByPassword",
+      "url": "https://sso.ccw.site/web/auth/login-by-password",
+      "source": "src/sso/web/auth/login-by-password.ts",
+      "line": 11,
+      "description": "通过密码登录",
+      "params": [
+        {
+          "name": "loginKey",
+          "type": "string",
+          "optional": false,
+          "description": "用户名"
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "optional": false,
+          "description": "密码"
+        },
+        {
+          "name": "reqExtra",
+          "type": "ReqExtra",
+          "optional": false,
+          "description": "额外信息"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": ""
+      }
+    },
+    {
+      "call": "sso.loginByPhone",
+      "service": "sso",
+      "name": "loginByPhone",
+      "url": "https://sso.ccw.site/web/auth/v3/login/by_phone",
+      "source": "src/sso/web/auth/v3/login/by-phone.ts",
+      "line": 15,
+      "description": "通过手机号+短信验证码登录（V3）",
+      "params": [
+        {
+          "name": "phone",
+          "type": "string",
+          "optional": false,
+          "description": "手机号，如 \"12345671145\""
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "optional": false,
+          "description": "收到的短信验证码"
+        },
+        {
+          "name": "reqExtra",
+          "type": "ReqExtra",
+          "optional": false,
+          "description": "设备和浏览器信息"
+        },
+        {
+          "name": "countryCode",
+          "type": "string",
+          "optional": false,
+          "description": "国家代码，默认 \"86\""
+        },
+        {
+          "name": "ruleCode",
+          "type": "ccw_sms",
+          "optional": false,
+          "description": "短信规则编码，默认 \"ccw_sms\""
+        },
+        {
+          "name": "scene",
+          "type": "loginbyPhone",
+          "optional": false,
+          "description": "登录场景，默认 \"loginbyPhone\""
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "session 信息"
+      }
+    },
+    {
+      "call": "sso.logout",
+      "service": "sso",
+      "name": "logout",
+      "url": "https://sso.ccw.site/web/auth/logout",
+      "source": "src/sso/web/auth/logout.ts",
+      "line": 12,
+      "description": "退出",
+      "params": [],
+      "returns": {
+        "type": "null",
+        "description": ""
+      }
+    },
+    {
+      "call": "sso.logoutBySession",
+      "service": "sso",
+      "name": "logoutBySession",
+      "url": "https://sso.ccw.site/web/auth/logout_by_session",
+      "source": "src/sso/web/auth/logout_by_session.ts",
+      "line": 13,
+      "description": "根据sessionId退出登陆设备",
+      "params": [
+        {
+          "name": "sessionId",
+          "type": "number",
+          "optional": false,
+          "description": ""
+        }
+      ],
+      "returns": {
+        "type": "boolean",
+        "description": "是否成功"
+      }
+    },
+    {
+      "call": "sso.oauthAuthorize",
+      "service": "sso",
+      "name": "oauthAuthorize",
+      "url": "",
+      "source": "src/sso/index.ts",
+      "line": 16,
+      "description": "获取加密后的oauth code, 此接口存在盗号漏洞, 已被修改",
+      "params": [
+        {
+          "name": "state",
+          "type": "string",
+          "optional": false,
+          "description": ""
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": ""
+      }
+    },
+    {
+      "call": "sso.touchSession",
+      "service": "sso",
+      "name": "touchSession",
+      "url": "https://sso.ccw.site/internal/auth/touch-session",
+      "source": "src/sso/internal/auth/touch-session.ts",
+      "line": 18,
+      "description": "刷新/校验会话（内部接口）\r\n当 token 为空时后端会返回 token 不能为空 的错误；成功时返回会话信息。",
+      "params": [
+        {
+          "name": "token",
+          "type": "string",
+          "optional": true,
+          "description": "会话 token（可选）"
+        }
+      ],
+      "returns": {
+        "type": "Res",
+        "description": "成功返回会话信息，失败会抛出错误"
+      }
+    }
+  ]
+}
